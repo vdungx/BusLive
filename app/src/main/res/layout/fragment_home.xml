@@ -59,7 +59,6 @@
 
             <!-- Tìm kiếm -->
             <LinearLayout
-
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -78,11 +77,13 @@
 
                 <EditText
                     android:id="@+id/edtTo"
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Nơi đến"
-
-                    android:drawableStart="@drawable/ic_location"
+                    android:hint="Ngày đi"
+                    android:focusable="false"
+                    android:clickable="true"
+                    android:drawableStart="@drawable/ic_calendar"
                     android:drawablePadding="8dp"
                     android:layout_marginBottom="8dp" />
 
@@ -91,8 +92,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Ngày đi"
-                    android:focusable="false"
-                    android:clickable="true"
                     android:drawableStart="@drawable/ic_calendar"
                     android:drawablePadding="8dp"
                     android:layout_marginBottom="16dp" />

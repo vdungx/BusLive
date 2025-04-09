@@ -9,9 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.buslive.Activity.ForgetPasswordActivity
 import com.example.buslive.R
-import com.example.buslive.Activity.SignUpActivity
 import com.google.firebase.auth.FirebaseAuth
 
 class LoginActivity : AppCompatActivity() {
@@ -61,7 +59,7 @@ class LoginActivity : AppCompatActivity() {
             auth.signInWithEmailAndPassword(input, password).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     Toast.makeText(this, "Đăng nhập thành công!", Toast.LENGTH_SHORT).show()
-                    startActivity(Intent(this, HomeActivity::class.java)) // Navigate to the main activity
+                    startActivity(Intent(this, MainActivity::class.java)) // Navigate to the main activity
                     finish()
                 } else {
                     Toast.makeText(this, "Lỗi: ${task.exception?.message}", Toast.LENGTH_SHORT).show()

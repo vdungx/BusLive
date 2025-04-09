@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Header -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="#2DB8FF"
+            android:paddingHorizontal="12dp">
+
+            <ImageView
+                android:id="@+id/btn_backgopy"
+                android:layout_width="48dp"
+                android:layout_height="40dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/back" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Góp ý"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF" />
+        </RelativeLayout>
+
+        <!-- Title -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mô tả vấn đề bạn gặp phải"
+            android:textSize="16sp"
+            android:background="#DDDDDD"
+            android:padding="12dp"
+            android:textColor="#000000"
+            android:textStyle="bold" />
+
+        <!-- Nội dung -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <EditText
+                android:id="@+id/edtEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Email"
+                android:background="#EEEEEE"
+                android:padding="12dp"
+                android:inputType="textEmailAddress"
+                android:textColorHint="#777777"
+                android:layout_marginBottom="12dp"/>
+
+            <EditText
+                android:id="@+id/edtPhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Số điện thoại"
+                android:background="#EEEEEE"
+                android:padding="12dp"
+                android:inputType="phone"
+                android:layout_marginBottom="12dp"/>
+
+            <TextView
+                android:id="@+id/tvSupportType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Loại hỗ trợ"
+                android:background="#EEEEEE"
+                android:padding="12dp"
+                android:drawableEnd="@drawable/ic_arrow_right"
+                android:drawablePadding="8dp"
+                android:layout_marginBottom="12dp" />
+
+            <EditText
+                android:id="@+id/edtDescription"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:hint="Tôi cần giúp ..."
+                android:background="#EEEEEE"
+                android:padding="12dp"
+                android:gravity="top"
+                android:inputType="textMultiLine"
+                android:layout_marginBottom="12dp" />
+
+            <!-- Gợi ý -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="12dp">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginEnd="8dp"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Hãy mô tả thời gian, hoàn cảnh và tệp đính kèm để được hỗ trợ nhanh nhất"
+                    android:textSize="14sp"
+                    android:textColor="#444444"/>
+            </LinearLayout>
+
+            <!-- Chọn ảnh -->
+            <TextView
+                android:id="@+id/tvChooseImage"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:gravity="center"
+                android:text="Chọn ảnh"
+
+                android:drawablePadding="8dp"
+                android:background="#EEEEEE"
+                android:textColor="#000000"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- Gửi yêu cầu -->
+            <Button
+                android:id="@+id/btnSend"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Gửi yêu cầu"
+                android:backgroundTint="#2196F3"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"/>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
