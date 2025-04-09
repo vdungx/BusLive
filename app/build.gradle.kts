@@ -1,5 +1,5 @@
 plugins {
-    alias(libs.plugins.android.application)
+    id("com.android.application") version "8.8.0"
     alias(libs.plugins.kotlin.android)
     id("com.google.gms.google-services")
 }
@@ -37,6 +37,7 @@ android {
 }
 
 dependencies {
+    implementation ("androidx.fragment:fragment-ktx:1.6.2")
     implementation(platform("com.google.firebase:firebase-bom:33.12.0"))
     implementation("com.google.firebase:firebase-analytics")
     implementation("com.google.firebase:firebase-auth:22.1.2")
