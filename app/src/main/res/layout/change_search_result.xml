@@ -1,6 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@android:color/white"
+    android:elevation="4dp"
+    >
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+
+        android:background="?attr/colorPrimary"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Thay đổi tìm kiếm"
+            android:textSize="18sp"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/text_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Đóng"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:orientation="vertical"
+        android:background="#FFFFFF"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp">
+
+        <EditText
+            android:id="@+id/edtFrom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nơi xuất phát"
+            android:drawableLeft="@drawable/ic_des"
+            android:drawablePadding="8dp"
+            android:layout_marginBottom="8dp" />
+
+        <EditText
+            android:id="@+id/edtTo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Bạn muốn đi đâu"
+            android:drawableLeft="@drawable/ic_location"
+            android:drawablePadding="8dp"
+            android:layout_marginBottom="8dp" />
+
+        <EditText
+            android:id="@+id/edtDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ngày đi"
+            android:drawableLeft="@drawable/ic_calendar"
+            android:drawablePadding="8dp"
+            android:layout_marginBottom="16dp" />
+
+        <Button
+            android:id="@+id/btnSearch"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="Tìm kiếm"
+            android:backgroundTint="#FFEA03"
+            android:layout_gravity="center"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+
+</LinearLayout>

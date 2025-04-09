@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="6dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <!-- Thời gian khởi hành -->
+        <TextView
+            android:id="@+id/text_time_departure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="19:20"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Biểu tượng chấm xanh -->
+        <ImageView
+            android:id="@+id/icon_departure"
+            android:layout_width="8dp"
+            android:layout_height="8dp"
+            android:src="@drawable/ic_circle"
+            app:layout_constraintStart_toEndOf="@+id/text_time_departure"
+            app:layout_constraintTop_toTopOf="@+id/text_time_departure"
+            android:layout_marginStart="4dp" />
+
+        <!-- Địa điểm khởi hành -->
+        <TextView
+            android:id="@+id/text_location_departure"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Quầy 67 69 Bến xe nước ngầm"
+            android:textSize="14sp"
+            app:layout_constraintStart_toEndOf="@+id/icon_departure"
+            app:layout_constraintTop_toTopOf="@+id/text_time_departure" />
+
+        <!-- Thời gian đến -->
+        <TextView
+            android:id="@+id/text_time_arrival"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="06:35"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_time_departure" />
+
+        <!-- Biểu tượng chấm đỏ -->
+        <ImageView
+            android:id="@+id/icon_arrival"
+            android:layout_width="8dp"
+            android:layout_height="8dp"
+            android:src="@drawable/ic_circle"
+            app:layout_constraintStart_toEndOf="@+id/text_time_arrival"
+            app:layout_constraintTop_toTopOf="@+id/text_time_arrival"
+            android:layout_marginStart="4dp" />
+
+        <!-- Địa điểm đến -->
+        <TextView
+            android:id="@+id/text_location_arrival"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="46 Nam Trân, Đà Nẵng"
+            android:textSize="14sp"
+            app:layout_constraintStart_toEndOf="@+id/icon_arrival"
+            app:layout_constraintTop_toTopOf="@+id/text_time_arrival" />
+
+        <!-- Ảnh xe -->
+        <ImageView
+            android:id="@+id/image_bus"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_bus"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_time_arrival"
+            android:layout_marginTop="8dp" />
+
+        <!-- Tên xe -->
+        <TextView
+            android:id="@+id/text_bus_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tân Kim Chi"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            app:layout_constraintStart_toEndOf="@+id/image_bus"
+            app:layout_constraintTop_toTopOf="@+id/image_bus"
+            android:layout_marginStart="8dp" />
+
+        <!-- Loại xe -->
+        <TextView
+            android:id="@+id/text_bus_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Limousine giường phòng 24 chỗ (CABIN ĐÔI)"
+            android:textSize="11sp"
+            app:layout_constraintStart_toStartOf="@+id/text_bus_name"
+            app:layout_constraintTop_toBottomOf="@+id/text_bus_name" />
+
+        <!-- Đánh giá sao -->
+        <TextView
+            android:id="@+id/text_rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4.4 ⭐ (2708 đánh giá)"
+            android:textSize="11sp"
+            android:textColor="#FFC107"
+            app:layout_constraintStart_toStartOf="@+id/text_bus_type"
+            app:layout_constraintTop_toBottomOf="@+id/text_bus_type" />
+
+        <TextView
+            android:id="@+id/text_no_prepayment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Không cần thanh toán trước"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/image_bus" />
+
+        <TextView
+            android:id="@+id/text_confirm_now"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Xác nhận chỗ ngay lập tức"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_no_prepayment" />
+
+        <!-- Giá vé -->
+        <TextView
+            android:id="@+id/text_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Từ 700.000 ₫"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            android:textColor="#D32F2F"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Nút chọn chỗ -->
+        <Button
+            android:id="@+id/button_choose"
+            android:layout_width="90dp"
+            android:layout_height="40dp"
+            android:text="Chọn chỗ"
+            android:textSize="8sp"
+            android:backgroundTint="#FFD700"
+            android:textColor="@android:color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
