@@ -10,8 +10,11 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.buslive.R
 import com.example.buslive.Model.ChuyenXe
+import com.google.firebase.database.*
 
-class ChuyenXeAdapter : RecyclerView.Adapter<ChuyenXeAdapter.ChuyenXeViewHolder>() {
+class ChuyenXeAdapter(
+    private val onChonChoClick: (ChuyenXe) -> Unit
+) : RecyclerView.Adapter<ChuyenXeAdapter.ChuyenXeViewHolder>() {
 
     private val listChuyenXe = mutableListOf<ChuyenXe>()
 
@@ -43,32 +46,27 @@ class ChuyenXeAdapter : RecyclerView.Adapter<ChuyenXeAdapter.ChuyenXeViewHolder>
 
     override fun onBindViewHolder(holder: ChuyenXeViewHolder, position: Int) {
         val chuyen = listChuyenXe[position]
+        val context = holder.itemView.context
 
+        // Set time and location
         holder.txtTimeDeparture.text = chuyen.gioDi ?: "--:--"
         holder.txtTimeArrival.text = chuyen.gioDen ?: "--:--"
-        holder.txtLocationDeparture.text = chuyen.diemDi ?: "Chưa rõ điểm đi"
-        holder.txtLocationArrival.text = chuyen.diemDen ?: "Chưa rõ điểm đến"
+        holder.txtLocationDeparture.text = chuyen.diemDon ?: "Chưa rõ điểm đón"
+        holder.txtLocationArrival.text = chuyen.diemTra ?: "Chưa rõ điểm trả"
+
+        // Set bus details
         holder.txtBusName.text = chuyen.tenNhaXe ?: "Chưa có tên xe"
         holder.txtBusType.text = chuyen.loaiXe ?: "Chưa rõ loại"
-        holder.txtRating.text = "4.4 ⭐ (2708 đánh giá)" // tạm fix, nếu có thể lấy từ Firebase thì càng tốt
 
-        holder.txtPrice.text = chuyen.giaVe?.let { "Từ %,d ₫".format(it) } ?: "Liên hệ"
-
-        // Ảnh minh họa tạm
+        // Set bus image
         holder.imgBus.setImageResource(R.drawable.ic_bus)
 
+        // Button action
         holder.btnChoose.setOnClickListener {
-            Toast.makeText(
-                holder.itemView.context,
-                "Bạn đã chọn chuyến ${chuyen.tenNhaXe}",
-                Toast.LENGTH_SHORT
-            ).show()
-
-            // TODO: chuyển Fragment chọn cabin, có thể dùng callback hoặc navigation
+            onChonChoClick(chuyen)
         }
     }
 
     override fun getItemCount(): Int = listChuyenXe.size
 }
-
 

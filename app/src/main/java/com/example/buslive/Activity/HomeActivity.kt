@@ -9,6 +9,9 @@ import com.example.buslive.Fragment.FragmentAccount
 import com.example.buslive.Fragment.FragmentFilter
 import com.example.buslive.Fragment.FragmentHistory
 import com.example.buslive.Fragment.FragmentHome
+import com.example.buslive.Model.addCabinsForTrip
+import com.example.buslive.Model.pushMultipleChuyenXeData
+import com.example.buslive.Model.pushMultipleTuyenDuongData
 import com.example.buslive.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -31,6 +34,9 @@ class HomeActivity : AppCompatActivity() {
                 .replace(R.id.fragment_container, FragmentHome())
                 .commit()
         }
+
+        pushMultipleTuyenDuongData()
+        pushMultipleChuyenXeData()
 
         bottomNav.setOnItemSelectedListener { item ->
             when (item.itemId) {

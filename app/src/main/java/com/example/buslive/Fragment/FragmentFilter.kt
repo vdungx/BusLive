@@ -1,6 +1,7 @@
 package com.example.buslive.Fragment
 
 import android.app.DatePickerDialog
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,11 +11,13 @@ import android.widget.EditText
 import android.widget.FrameLayout
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.buslive.Activity.ChonChoActivity
 import com.example.buslive.R
 import com.example.buslive.adapter.ChuyenXeAdapter
 import com.example.buslive.Model.ChuyenXe
@@ -43,7 +46,21 @@ class FragmentFilter : Fragment() {
         // Setup RecyclerView
         recyclerView = view.findViewById(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        adapter = ChuyenXeAdapter()
+
+        // Initialize the adapter once, not in onCreateView.
+        adapter = ChuyenXeAdapter { selectedChuyenXe ->
+            val intent = Intent(requireContext(), ChonChoActivity::class.java)
+
+            // Truyền dữ liệu chuyến xe qua Intent
+            intent.putExtra("idChuyen", selectedChuyenXe.idChuyen)
+            intent.putExtra("tenNhaXe", selectedChuyenXe.tenNhaXe)
+            intent.putExtra("giaVe", selectedChuyenXe.giaVe ?: 0)
+            intent.putExtra("gioDi", selectedChuyenXe.gioDi)
+            intent.putExtra("ngayKhoiHanh", selectedChuyenXe.ngayKhoiHanh)
+
+            startActivity(intent)
+        }
+
         recyclerView.adapter = adapter
 
         // Firebase reference
@@ -58,6 +75,7 @@ class FragmentFilter : Fragment() {
         val textClose = view.findViewById<TextView>(R.id.text_close)
         val changeSearchContainer = view.findViewById<FrameLayout>(R.id.change_search_container)
         val tvChange = view.findViewById<TextView>(R.id.tvChange)
+        val toolbar = view.findViewById<Toolbar>(R.id.toolbar)
 
         edtDate.setOnClickListener {
             val calendar = Calendar.getInstance()
@@ -75,6 +93,10 @@ class FragmentFilter : Fragment() {
             datePickerDialog.datePicker.minDate = calendar.timeInMillis
 
             datePickerDialog.show()
+        }
+
+        toolbar.setNavigationOnClickListener {
+            requireActivity().supportFragmentManager.popBackStack()
         }
 
         tvChange.setOnClickListener {
@@ -113,7 +135,6 @@ class FragmentFilter : Fragment() {
 
         return view
     }
-
 
     private fun fetchTuyenAndChuyenXe(from: String, to: String, date: String) {
         tuyenRef.addListenerForSingleValueEvent(object : ValueEventListener {
@@ -181,5 +202,4 @@ class FragmentFilter : Fragment() {
             }
         })
     }
-
 }

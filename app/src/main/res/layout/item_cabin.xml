@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    card_view:cardCornerRadius="12dp"
+    card_view:cardElevation="4dp"
+    android:id="@+id/cabinCardView">
+
+    <LinearLayout
+        android:id="@+id/layoutCabinItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <!-- Tên loại cabin -->
+        <TextView
+            android:id="@+id/txtLoaiCabin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cabin đơn"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#000000" />
+
+        <!-- Mô tả cabin -->
+        <TextView
+            android:id="@+id/txtMoTaCabin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cabin đơn, tầng 1, ghế A01"
+            android:textSize="14sp"
+            android:layout_marginTop="4dp"
+            android:textColor="#666666" />
+
+        <!-- Giá -->
+        <TextView
+            android:id="@+id/txtGiaCabin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Giá: 350.000đ"
+            android:textSize="14sp"
+            android:textColor="#009688"
+            android:layout_marginTop="4dp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

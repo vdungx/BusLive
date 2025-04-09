@@ -2,4 +2,7 @@
 <resources>
     <color name="black">#000000</color>
     <color name="white">#FFFFFF</color>
+    <color name="cabin_don">#03A9F4</color> <!-- Xanh biển -->
+    <color name="cabin_doi_nho">#4CAF50</color> <!-- Xanh lá -->
+    <color name="cabin_doi_lon">#FF9800</color> <!-- Cam -->
 </resources>

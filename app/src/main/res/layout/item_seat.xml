@@ -1,0 +1,24 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="60dp"
+    android:layout_height="60dp"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:id="@+id/layoutSeatItem"
+    android:padding="4dp">
+
+    <ImageView
+        android:id="@+id/seatBackground"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/ic_available_seat"
+        android:scaleType="fitCenter" />
+
+    <TextView
+        android:id="@+id/seatTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="A01"
+        android:textSize="12sp"
+        android:layout_marginTop="4dp"
+        android:textAlignment="center" />
+</LinearLayout>
