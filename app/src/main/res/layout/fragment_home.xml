@@ -59,7 +59,7 @@
 
             <!-- Tìm kiếm -->
             <LinearLayout
-                android:id="@+id/edtFrom"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -68,7 +68,7 @@
                 android:padding="10dp">
 
                 <EditText
-                    android:id="@+id/edtTo"
+                    android:id="@+id/edtFrom"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Nơi xuất phát"
@@ -77,18 +77,18 @@
                     android:layout_marginBottom="8dp" />
 
                 <EditText
-                    android:id="@+id/edtDate"
+                    android:id="@+id/edtTo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Ngày đi"
                     android:focusable="false"
                     android:clickable="true"
-                    android:drawableStart="@drawable/ic_calendar"
+                    android:drawableStart="@drawable/ic_location"
                     android:drawablePadding="8dp"
                     android:layout_marginBottom="8dp" />
 
                 <EditText
-                    android:id="@+id/btnSearch"
+                    android:id="@+id/edtDate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Ngày đi"
@@ -97,6 +97,7 @@
                     android:layout_marginBottom="16dp" />
 
                 <Button
+                    android:id="@+id/btnSearch"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Tìm kiếm"

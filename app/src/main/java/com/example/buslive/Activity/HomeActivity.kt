@@ -28,7 +28,7 @@ class HomeActivity : AppCompatActivity() {
         // Load fragment mặc định (home)
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.change_search_container, FragmentHome())
+                .replace(R.id.fragment_container, FragmentHome())
                 .commit()
         }
 
