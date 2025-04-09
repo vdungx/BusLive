@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- Phần thông tin người dùng -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:background="#03A9F4">
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:text="Tạ Văn Hiếu"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:text="Thành viên mới"
+                android:textColor="@android:color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Chỉnh sửa"
+            android:textColor="@android:color/white"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- Danh sách chức năng -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Item mẫu -->
+            <include layout="@layout/item_account_option"
+                android:id="@+id/item_card_manage"
+                android:tag="Quản lý thẻ" />
+
+            <include layout="@layout/item_account_option"
+                android:id="@+id/item_review_trip"
+                android:tag="Đánh giá chuyến đi" />
+
+            <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#ccc"/>
+
+            <include layout="@layout/item_account_option"
+                android:id="@+id/item_feedback"
+                android:tag="Góp ý" />
+
+            <include layout="@layout/item_account_option"
+                android:id="@+id/item_settings"
+                android:tag="Cài đặt" />
+
+            <include layout="@layout/item_account_option"
+                android:id="@+id/item_support"
+                android:tag="Trung tâm hỗ trợ" />
+
+            <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#ccc"/>
+
+            <include layout="@layout/item_account_option"
+                android:id="@+id/item_register_bus"
+                android:tag="Đăng ký tài khoản nhà xe" />
+
+            <include layout="@layout/item_account_option"
+                android:id="@+id/item_logout"
+                android:tag="Đăng xuất" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

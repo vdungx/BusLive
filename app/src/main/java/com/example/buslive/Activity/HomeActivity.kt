@@ -4,6 +4,11 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import com.example.buslive.Fragment.FragmentAccount
+import com.example.buslive.Fragment.FragmentFilter
+import com.example.buslive.Fragment.FragmentHistory
+import com.example.buslive.Fragment.FragmentHome
 import com.example.buslive.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -18,69 +23,41 @@ class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
+        val bottomNav = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
 
-        // Ánh xạ view
-//        bottomNavigationView = findViewById(R.id.bottomNavigationView)
-//        edtFrom = findViewById(R.id.edtFrom)
-//        edtTo = findViewById(R.id.edtTo)
-//        edtDate = findViewById(R.id.edtDate)
-//        btnSearch = findViewById(R.id.btnSearch)
+        // Load fragment mặc định (home)
+        if (savedInstanceState == null) {
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.change_search_container, FragmentHome())
+                .commit()
+        }
 
-        // Bắt sự kiện tìm kiếm
-//        btnSearch.setOnClickListener {
-//            val from = edtFrom.text.toString()
-//            val to = edtTo.text.toString()
-//            val date = edtDate.text.toString()
-//
-//            if (from.isBlank() || to.isBlank() || date.isBlank()) {
-//                Toast.makeText(this, "Vui lòng nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show()
-//            } else {
-//                // Gửi dữ liệu sang màn kết quả
-//                val intent = Intent(this, ResultActivity::class.java).apply {
-//                    putExtra("FROM", from)
-//                    putExtra("TO", to)
-//                    putExtra("DATE", date)
-//                }
-//                startActivity(intent)
-//            }
-//        }
+        bottomNav.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.navigation_home -> {
+                    loadFragment(FragmentHome())
+                    true
+                }
+                R.id.navigation_filter -> {
+                    loadFragment(FragmentFilter())
+                    true
+                }
+                R.id.navigation_history -> {
+                    loadFragment(FragmentHistory())
+                    true
+                }
+                R.id.navigation_account -> {
+                    loadFragment(FragmentAccount())
+                    true
+                }
+                else -> false
+            }
+        }
+    }
 
-//        edtDate.setOnClickListener {
-//            val calendar = Calendar.getInstance()
-//            val year = calendar.get(Calendar.YEAR)
-//            val month = calendar.get(Calendar.MONTH)
-//            val day = calendar.get(Calendar.DAY_OF_MONTH)
-//
-//            val datePickerDialog = DatePickerDialog(this,
-//                { _, selectedYear, selectedMonth, selectedDay ->
-//                    val formattedDate = "%02d/%02d/%04d".format(selectedDay, selectedMonth + 1, selectedYear)
-//                    edtDate.setText(formattedDate)
-//                }, year, month, day)
-//
-//            datePickerDialog.show()
-//        }
-
-        // Xử lý BottomNavigation
-        //        bottomNavigationView.setOnItemSelectedListener { item ->
-        //            when (item.itemId) {
-        //                R.id.navigation_home -> {
-        //                    startActivity(Intent(this, HomeActivity::class.java))
-        //                    true
-        //                }
-        //                R.id.navigation_location -> {
-        //                    startActivity(Intent(this, ResultActivity::class.java))
-        //                    true
-        //                }
-        //                R.id.navigation_history -> {
-        //                    startActivity(Intent(this, HistoryActivity::class.java))
-        //                    true
-        //                }
-        //                R.id.navigation_account -> {
-        //                    startActivity(Intent(this, AccountActivity::class.java))
-        //                    true
-        //                }
-        //                else -> false
-        //            }
-        //        }
+    private fun loadFragment(fragment: Fragment) {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.change_search_container, fragment)
+            .commit()
     }
 }
