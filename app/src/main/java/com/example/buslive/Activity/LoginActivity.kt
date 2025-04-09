@@ -9,7 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.buslive.Activity.ForgetPasswordActivity
+import com.example.buslive.ForgetPasswordActivity
 import com.example.buslive.R
 import com.example.buslive.Activity.SignUpActivity
 import com.google.firebase.auth.FirebaseAuth

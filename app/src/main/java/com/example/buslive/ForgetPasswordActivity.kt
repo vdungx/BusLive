@@ -1,4 +1,4 @@
-package com.example.buslive.Activity
+package com.example.buslive
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,7 +7,7 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.buslive.R
+import com.example.buslive.Activity.LoginActivity
 import com.google.firebase.auth.FirebaseAuth
 
 class ForgetPasswordActivity : AppCompatActivity() {

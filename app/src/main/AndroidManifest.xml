@@ -19,7 +19,7 @@
             android:name=".Activity.HomeActivity"
             android:exported="false" />
         <activity
-            android:name=".Activity.ForgetPasswordActivity"
+            android:name=".ForgetPasswordActivity"
             android:exported="false" />
         <activity
             android:name=".Activity.SignUpActivity"
