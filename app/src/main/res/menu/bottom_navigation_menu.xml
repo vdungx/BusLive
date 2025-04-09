@@ -7,7 +7,7 @@
         android:title="Trang chủ" />
 
     <item
-        android:id="@+id/navigation_location"
+        android:id="@+id/navigation_filter"
         android:icon="@drawable/ic_des"
         android:title="Lọc" />
 

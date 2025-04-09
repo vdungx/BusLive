@@ -39,7 +39,7 @@ class ResultActivity : AppCompatActivity() {
         tvDate.text = formatDate(date)
 
         // Hiển thị mục đang chọn là "Lọc"
-        bottomNavigationView.selectedItemId = R.id.navigation_location
+        bottomNavigationView.selectedItemId = R.id.navigation_filter
 
         //        bottomNavigationView.setOnItemSelectedListener { item: MenuItem ->
         //            when (item.itemId) {
