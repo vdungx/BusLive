@@ -38,10 +38,6 @@ class HomeActivity : AppCompatActivity() {
                     loadFragment(FragmentHome())
                     true
                 }
-                R.id.navigation_filter -> {
-                    loadFragment(FragmentFilter())
-                    true
-                }
                 R.id.navigation_history -> {
                     loadFragment(FragmentHistory())
                     true
