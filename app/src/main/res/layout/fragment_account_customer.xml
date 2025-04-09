@@ -1,48 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#F5F5F5">
 
-    <!-- Phần thông tin người dùng -->
-    <LinearLayout
+    <!-- Header -->
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="16dp"
-        android:background="#03A9F4">
+        android:layout_height="100dp"
+        android:background="#2DB8FF"
+        android:padding="16dp">
+
+
         <LinearLayout
-            android:layout_width="0dp"
-            android:layout_weight="1"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="28dp"
             android:orientation="vertical">
 
             <TextView
-                android:text="Tạ Văn Hiếu"
-                android:textColor="@android:color/white"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-            <TextView
-                android:text="Thành viên mới"
-                android:textColor="@android:color/white"
+                android:id="@+id/tvName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="Name"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvRole"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Role"
+                android:textColor="#FFFFFF"
                 android:textSize="14sp" />
         </LinearLayout>
 
         <TextView
+            android:id="@+id/tvEdit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Chỉnh sửa"
-            android:textColor="@android:color/white"
-            android:textStyle="bold" />
-    </LinearLayout>
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:padding="8dp"/>
+    </RelativeLayout>
 
-    <!-- Danh sách chức năng -->
+    <!-- Content -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -51,41 +63,23 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="8dp">
 
-            <!-- Item mẫu -->
+            <!-- Menu items -->
+            <!-- Repeat for each item -->
             <include layout="@layout/item_account_option"
-                android:id="@+id/item_card_manage"
-                android:tag="Quản lý thẻ" />
-
-            <include layout="@layout/item_account_option"
-                android:id="@+id/item_review_trip"
-                android:tag="Đánh giá chuyến đi" />
-
-            <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#ccc"/>
+                android:id="@+id/itemFeedback" />
 
             <include layout="@layout/item_account_option"
-                android:id="@+id/item_feedback"
-                android:tag="Góp ý" />
+                android:id="@+id/itemSettings" />
 
             <include layout="@layout/item_account_option"
-                android:id="@+id/item_settings"
-                android:tag="Cài đặt" />
+                android:id="@+id/itemSupportCenter" />
 
             <include layout="@layout/item_account_option"
-                android:id="@+id/item_support"
-                android:tag="Trung tâm hỗ trợ" />
-
-            <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#ccc"/>
-
-            <include layout="@layout/item_account_option"
-                android:id="@+id/item_register_bus"
-                android:tag="Đăng ký tài khoản nhà xe" />
-
-            <include layout="@layout/item_account_option"
-                android:id="@+id/item_logout"
-                android:tag="Đăng xuất" />
-
+                android:id="@+id/itemLogout" />
         </LinearLayout>
     </ScrollView>
+
 </LinearLayout>

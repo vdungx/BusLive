@@ -1,8 +1,6 @@
 package com.example.buslive.Activity
 
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.buslive.Fragment.FragmentAccount
@@ -12,23 +10,17 @@ import com.example.buslive.Fragment.FragmentHome
 import com.example.buslive.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
-class HomeActivity : AppCompatActivity() {
-
-    private lateinit var bottomNavigationView: BottomNavigationView
-    private lateinit var edtFrom: EditText
-    private lateinit var edtTo: EditText
-    private lateinit var edtDate: EditText
-    private lateinit var btnSearch: Button
+class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home)
+        setContentView(R.layout.activity_main)
         val bottomNav = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
 
         // Load fragment mặc định (home)
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.change_search_container, FragmentHome())
+                .replace(R.id.fragment_container, FragmentHome())
                 .commit()
         }
 
@@ -57,7 +49,7 @@ class HomeActivity : AppCompatActivity() {
 
     private fun loadFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
-            .replace(R.id.change_search_container, fragment)
+            .replace(R.id.fragment_container, fragment)
             .commit()
     }
 }
