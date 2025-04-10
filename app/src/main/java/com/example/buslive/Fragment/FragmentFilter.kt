@@ -6,25 +6,19 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
-import android.widget.FrameLayout
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.buslive.Activity.ChonChoActivity
 import com.example.buslive.R
 import com.example.buslive.adapter.ChuyenXeAdapter
 import com.example.buslive.Model.ChuyenXe
-import com.example.buslive.Model.TuyenDuong
 import com.example.buslive.viewmodel.SearchViewModel
 import com.google.firebase.database.*
-import java.util.Calendar
+import java.util.*
 
 class FragmentFilter : Fragment() {
 
@@ -45,25 +39,20 @@ class FragmentFilter : Fragment() {
 
         // Setup RecyclerView
         recyclerView = view.findViewById(R.id.recyclerView)
-        recyclerView.layoutManager = LinearLayoutManager(requireContext())
-
-        // Initialize the adapter once, not in onCreateView.
         adapter = ChuyenXeAdapter { selectedChuyenXe ->
             val intent = Intent(requireContext(), ChonChoActivity::class.java)
-
-            // Truyền dữ liệu chuyến xe qua Intent
-            intent.putExtra("idChuyen", selectedChuyenXe.idChuyen)
+            intent.putExtra("maChuyen", selectedChuyenXe.idChuyen)
             intent.putExtra("tenNhaXe", selectedChuyenXe.tenNhaXe)
             intent.putExtra("giaVe", selectedChuyenXe.giaVe ?: 0)
             intent.putExtra("gioDi", selectedChuyenXe.gioDi)
             intent.putExtra("ngayKhoiHanh", selectedChuyenXe.ngayKhoiHanh)
-
             startActivity(intent)
         }
 
         recyclerView.adapter = adapter
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-        // Firebase reference
+        // Firebase
         database = FirebaseDatabase.getInstance()
         tuyenRef = database.getReference("TuyenDuong")
         chuyenRef = database.getReference("ChuyenXe")
@@ -83,15 +72,12 @@ class FragmentFilter : Fragment() {
             val month = calendar.get(Calendar.MONTH)
             val day = calendar.get(Calendar.DAY_OF_MONTH)
 
-            val datePickerDialog = DatePickerDialog(requireContext(), { _, selectedYear, selectedMonth, selectedDay ->
-                // Format lại ngày nếu cần (ví dụ: 09/04/2025)
-                val selectedDate = String.format("%02d/%02d/%04d", selectedDay, selectedMonth + 1, selectedYear)
+            val datePickerDialog = DatePickerDialog(requireContext(), { _, y, m, d ->
+                val selectedDate = String.format("%02d/%02d/%04d", d, m + 1, y)
                 edtDate.setText(selectedDate)
             }, year, month, day)
 
-            // Không cho chọn ngày trước hôm nay (nếu muốn)
             datePickerDialog.datePicker.minDate = calendar.timeInMillis
-
             datePickerDialog.show()
         }
 
@@ -120,17 +106,16 @@ class FragmentFilter : Fragment() {
             }
         }
 
-        // UI elements
         val tvFrom = view.findViewById<TextView>(R.id.tvdiemdi)
         val tvTo = view.findViewById<TextView>(R.id.tvdiemden)
         val tvDate = view.findViewById<TextView>(R.id.tvDate)
 
-        // Observe search query
         searchViewModel.searchQuery.observe(viewLifecycleOwner) { (from, to, date) ->
             tvFrom.text = from
             tvTo.text = to
             tvDate.text = date
-            fetchTuyenAndChuyenXe(from, to, date)
+            val formattedDate = convertDateFormat(date)
+            fetchTuyenAndChuyenXe(from, to, formattedDate)
         }
 
         return view
@@ -142,11 +127,11 @@ class FragmentFilter : Fragment() {
                 var matchedTuyenId: String? = null
 
                 for (tuyenSnap in snapshot.children) {
-                    val diemDi = tuyenSnap.child("diemDi").getValue(String::class.java)
-                    val diemDen = tuyenSnap.child("diemDen").getValue(String::class.java)
+                    val diemDi = tuyenSnap.child("diemDi").getValue(String::class.java) ?: ""
+                    val diemDen = tuyenSnap.child("diemDen").getValue(String::class.java) ?: ""
 
                     if (diemDi.equals(from, ignoreCase = true) && diemDen.equals(to, ignoreCase = true)) {
-                        matchedTuyenId = tuyenSnap.child("idTuyen").getValue(String::class.java)
+                        matchedTuyenId = tuyenSnap.key // Fix: dùng key thay vì idTuyen trong node
                         break
                     }
                 }
@@ -154,7 +139,7 @@ class FragmentFilter : Fragment() {
                 if (matchedTuyenId != null) {
                     fetchChuyenXeByTuyenAndDate(matchedTuyenId, date)
                 } else {
-                    adapter.submitList(emptyList()) // không có tuyến
+                    adapter.submitList(emptyList())
                 }
             }
 
@@ -165,13 +150,11 @@ class FragmentFilter : Fragment() {
     }
 
     private fun fetchChuyenXeByTuyenAndDate(tuyenId: String, date: String) {
-        // Lấy dữ liệu tuyến trước
         tuyenRef.child(tuyenId).addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(tuyenSnapshot: DataSnapshot) {
                 val diemDi = tuyenSnapshot.child("diemDi").getValue(String::class.java)
                 val diemDen = tuyenSnapshot.child("diemDen").getValue(String::class.java)
 
-                // Sau đó mới fetch chuyến xe
                 chuyenRef.addListenerForSingleValueEvent(object : ValueEventListener {
                     override fun onDataChange(snapshot: DataSnapshot) {
                         val resultList = mutableListOf<ChuyenXe>()
@@ -201,5 +184,12 @@ class FragmentFilter : Fragment() {
                 Toast.makeText(requireContext(), "Lỗi tải tuyến đường", Toast.LENGTH_SHORT).show()
             }
         })
+    }
+
+    private fun convertDateFormat(date: String): String {
+        val parts = date.split("/")
+        return if (parts.size == 3) {
+            "${parts[2]}-${parts[1]}-${parts[0]}"
+        } else date
     }
 }

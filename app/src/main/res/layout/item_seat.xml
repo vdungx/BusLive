@@ -1,15 +1,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layoutSeatItem"
     android:layout_width="60dp"
     android:layout_height="60dp"
     android:orientation="vertical"
     android:gravity="center"
-    android:id="@+id/layoutSeatItem"
-    android:padding="4dp">
+    android:padding="4dp"
+    android:background="@drawable/bg_seat_default">
 
     <ImageView
         android:id="@+id/seatBackground"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
         android:src="@drawable/ic_available_seat"
         android:scaleType="fitCenter" />
 
@@ -18,7 +19,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="A01"
-        android:textSize="12sp"
-        android:layout_marginTop="4dp"
+        android:textSize="11sp"
+        android:textColor="#333333"
+        android:layout_marginTop="2dp"
         android:textAlignment="center" />
 </LinearLayout>

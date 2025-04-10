@@ -1,4 +1,4 @@
-package com.example.buslive.Adapter
+package com.example.buslive.adapter
 
 import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
@@ -15,6 +15,12 @@ class CabinAdapter(
     private val listCabin: List<Cabin>
 ) : RecyclerView.Adapter<CabinAdapter.CabinViewHolder>() {
 
+    // Lấy danh sách cabin không trùng loại
+    private val getFilteredList: List<Cabin>
+        get() = listCabin
+            .filter { !it.loai.isNullOrBlank() }
+            .distinctBy { it.loai?.trim()?.lowercase() }
+
     inner class CabinViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val txtLoai = itemView.findViewById<TextView>(R.id.txtLoaiCabin)
         val txtMoTa = itemView.findViewById<TextView>(R.id.txtMoTaCabin)
@@ -29,25 +35,25 @@ class CabinAdapter(
     }
 
     override fun onBindViewHolder(holder: CabinViewHolder, position: Int) {
-        val cabin = listCabin[position]
+        val cabin = getFilteredList[position]
         holder.txtLoai.text = cabin.loai
         holder.txtMoTa.text = "Tầng ${cabin.tang}, ghế ${cabin.viTri}"
         holder.txtGia.text = "Giá: ${cabin.gia?.toInt() ?: 0} đ"
 
-        // Viền màu theo loại cabin
         val strokeDrawable = GradientDrawable().apply {
             shape = GradientDrawable.RECTANGLE
             cornerRadius = 24f
-            setColor(Color.WHITE) // nền trắng
-            setStroke(5, when (cabin.loai?.lowercase()) {  // Sử dụng safe call để tránh lỗi null
-                "cabin đơn" -> Color.parseColor("#FF5722") // Cam
-                "cabin đôi" -> Color.parseColor("#3F51B5") // Xanh đậm
-                "cabin vip" -> Color.parseColor("#FFC107") // Vàng
-                else -> Color.GRAY // Mặc định nếu không xác định hoặc null
+            setColor(Color.WHITE)
+            setStroke(5, when (cabin.loai?.lowercase()) {
+                "cabin đơn" -> Color.parseColor("#FF5722")
+                "cabin đôi" -> Color.parseColor("#3F51B5")
+                "cabin vip" -> Color.parseColor("#FFC107")
+                else -> Color.GRAY
             })
         }
         holder.layoutCabin.background = strokeDrawable
     }
 
-    override fun getItemCount(): Int = listCabin.size
+    override fun getItemCount(): Int = getFilteredList.size
 }
+
