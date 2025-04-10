@@ -1,70 +1,129 @@
 package com.example.buslive.Activity
 
 import android.os.Bundle
+import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.buslive.Adapter.CabinAdapter
 import com.example.buslive.Model.Cabin
 import com.example.buslive.R
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
+import com.example.buslive.adapter.CabinAdapter
+import com.example.buslive.adapter.SeatAdapter
+import com.google.firebase.database.*
 
 class ChonChoActivity : AppCompatActivity() {
+
+    private lateinit var lowerFloorRecyclerView: RecyclerView
+    private lateinit var upperFloorRecyclerView: RecyclerView
+    private lateinit var btnContinue: android.widget.Button
+
+    private var selectedCabin: Cabin? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chon_cho)
 
-        // Lấy dữ liệu chuyến xe được truyền qua Intent
+        // Nhận dữ liệu từ intent
         val tenNhaXe = intent.getStringExtra("tenNhaXe")
         val gioDi = intent.getStringExtra("gioDi")
         val ngayKhoiHanh = intent.getStringExtra("ngayKhoiHanh")
+        val maChuyen = intent.getStringExtra("maChuyen") ?: return
 
-        // Ánh xạ View từ XML
+        // Gán dữ liệu lên giao diện
         val titleTextView = findViewById<TextView>(R.id.titleTextView)
         val dateTimeTextView = findViewById<TextView>(R.id.dateTimeTextView)
         val backButton = findViewById<ImageView>(R.id.backButton)
 
-        // Gán dữ liệu lên view
         titleTextView.text = tenNhaXe ?: "Chuyến xe"
         dateTimeTextView.text = "${gioDi ?: "--:--"} , ${ngayKhoiHanh ?: "Ngày chưa rõ"}"
 
-        // Xử lý nút quay lại
-        backButton.setOnClickListener {
-            onBackPressed()
-        }
+        backButton.setOnClickListener { onBackPressed() }
 
-        val recyclerView = findViewById<RecyclerView>(R.id.cabinOptionsRecyclerView)
+        // RecyclerView chọn loại cabin (đơn/đôi)
+        val cabinOptionsRecyclerView = findViewById<RecyclerView>(R.id.cabinOptionsRecyclerView)
         val cabinList = mutableListOf<Cabin>()
-        val adapter = CabinAdapter(cabinList)
-        recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = adapter
+        val cabinAdapter = CabinAdapter(cabinList)
+        cabinOptionsRecyclerView.layoutManager = LinearLayoutManager(this)
+        cabinOptionsRecyclerView.adapter = cabinAdapter
 
+        // RecyclerView cho ghế tầng dưới và tầng trên
+        lowerFloorRecyclerView = findViewById(R.id.lowerFloorSeatsRecyclerView)
+        upperFloorRecyclerView = findViewById(R.id.upperFloorSeatsRecyclerView)
+        lowerFloorRecyclerView.layoutManager = GridLayoutManager(this, 2)
+        upperFloorRecyclerView.layoutManager = GridLayoutManager(this, 2)
+
+        // Lấy dữ liệu cabin từ Firebase
         val database = FirebaseDatabase.getInstance().getReference("Cabin")
-
-        val maChuyen = intent.getStringExtra("maChuyen") ?: return
-
-        database.orderByChild("maChuyen").equalTo(maChuyen.toDouble()) // Firebase lưu số là Double
+        database.orderByChild("maChuyen").equalTo(maChuyen)
             .addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
+                    val lowerCabins = mutableListOf<Cabin>()
+                    val upperCabins = mutableListOf<Cabin>()
                     cabinList.clear()
+
                     for (data in snapshot.children) {
                         val cabin = data.getValue(Cabin::class.java)
                         if (cabin != null) {
                             cabinList.add(cabin)
+                            if (cabin.tang == 1) lowerCabins.add(cabin)
+                            else if (cabin.tang == 2) upperCabins.add(cabin)
                         }
                     }
-                    adapter.notifyDataSetChanged()
+
+                    cabinAdapter.notifyDataSetChanged()
+
+                    val lowerSeatAdapter = SeatAdapter(this@ChonChoActivity, lowerCabins)
+                    val upperSeatAdapter = SeatAdapter(this@ChonChoActivity, upperCabins)
+
+                    // Callback khi chọn ghế tầng dưới
+                    lowerSeatAdapter.onSeatClick = { cabin ->
+                        selectedCabin = cabin
+                        upperSeatAdapter.clearSelection()
+                        btnContinue.visibility = View.VISIBLE
+                        Toast.makeText(this@ChonChoActivity, "Chọn ghế: ${cabin.viTri}", Toast.LENGTH_SHORT).show()
+                    }
+
+                    // Callback khi chọn ghế tầng trên
+                    upperSeatAdapter.onSeatClick = { cabin ->
+                        selectedCabin = cabin
+                        lowerSeatAdapter.clearSelection()
+                        btnContinue.visibility = View.VISIBLE
+                        Toast.makeText(this@ChonChoActivity, "Chọn ghế: ${cabin.viTri}", Toast.LENGTH_SHORT).show()
+                    }
+
+                    lowerFloorRecyclerView.adapter = lowerSeatAdapter
+                    upperFloorRecyclerView.adapter = upperSeatAdapter
                 }
 
                 override fun onCancelled(error: DatabaseError) {
-                    Toast.makeText(this@ChonChoActivity, "Lỗi tải cabin: ${error.message}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@ChonChoActivity, "Lỗi tải dữ liệu: ${error.message}", Toast.LENGTH_SHORT).show()
                 }
             })
+
+        // Xử lý nút Tiếp tục
+        btnContinue = findViewById(R.id.btnContinue)
+        btnContinue.visibility = View.GONE
+
+        btnContinue.setOnClickListener {
+            selectedCabin?.let {
+                Toast.makeText(this, "Tiếp tục với ghế: ${it.viTri}", Toast.LENGTH_SHORT).show()
+                // Gửi thông tin chuyến đi
+                intent.putExtra("tenNhaXe", tenNhaXe)
+                intent.putExtra("gioDi", gioDi)
+                intent.putExtra("ngayKhoiHanh", ngayKhoiHanh)
+                intent.putExtra("maChuyen", maChuyen)
+
+
+                // Gửi thông tin cabin đã chọn
+                intent.putExtra("viTri", selectedCabin?.viTri ?: "")
+                intent.putExtra("gia", selectedCabin?.gia ?: 0.0)
+                intent.putExtra("tang", selectedCabin?.tang ?: 0)
+                startActivity(intent)
+            } ?: Toast.makeText(this, "Vui lòng chọn một ghế", Toast.LENGTH_SHORT).show()
+        }
     }
 }

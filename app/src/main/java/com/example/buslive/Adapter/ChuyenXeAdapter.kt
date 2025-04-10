@@ -46,26 +46,28 @@ class ChuyenXeAdapter(
 
     override fun onBindViewHolder(holder: ChuyenXeViewHolder, position: Int) {
         val chuyen = listChuyenXe[position]
-        val context = holder.itemView.context
 
-        // Set time and location
         holder.txtTimeDeparture.text = chuyen.gioDi ?: "--:--"
         holder.txtTimeArrival.text = chuyen.gioDen ?: "--:--"
         holder.txtLocationDeparture.text = chuyen.diemDon ?: "Chưa rõ điểm đón"
         holder.txtLocationArrival.text = chuyen.diemTra ?: "Chưa rõ điểm trả"
 
-        // Set bus details
         holder.txtBusName.text = chuyen.tenNhaXe ?: "Chưa có tên xe"
         holder.txtBusType.text = chuyen.loaiXe ?: "Chưa rõ loại"
 
-        // Set bus image
+        holder.txtPrice.text = chuyen.giaVe?.let { "${it}đ" } ?: "Chưa rõ"
+
+        // Ẩn các TextView chưa dùng
+        holder.txtNoPrepayment.visibility = View.GONE
+        holder.txtConfirmNow.visibility = View.GONE
+
         holder.imgBus.setImageResource(R.drawable.ic_bus)
 
-        // Button action
         holder.btnChoose.setOnClickListener {
             onChonChoClick(chuyen)
         }
     }
+
 
     override fun getItemCount(): Int = listChuyenXe.size
 }
