@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "763165806829",
+    "firebase_url": "https://buslive-27183-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "buslive-27183",
+    "storage_bucket": "buslive-27183.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:763165806829:android:79fff206a8747d6af9bce4",
+        "android_client_info": {
+          "package_name": "com.example.buslive"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCfsundj69IsFigGpWNGSP49TPQvmJeMWw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
