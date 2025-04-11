@@ -1,0 +1,2034 @@
+{
+  "Cabin": {
+    "CX1": {
+      "Cabin1": {
+        "gia": 200000,
+        "loai": "Cabin Đơn",
+        "maCabin": 1,
+        "maChuyen": "CX1",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A01"
+      },
+      "Cabin10": {
+        "gia": 250000,
+        "loai": "Cabin Đôi",
+        "maCabin": 10,
+        "maChuyen": "CX1",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B02"
+      },
+      "Cabin11": {
+        "gia": 250000,
+        "loai": "Cabin Đơn",
+        "maCabin": 11,
+        "maChuyen": "CX1",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B03"
+      },
+      "Cabin12": {
+        "gia": 250000,
+        "loai": "Cabin Đôi",
+        "maCabin": 12,
+        "maChuyen": "CX1",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B04"
+      },
+      "Cabin13": {
+        "gia": 250000,
+        "loai": "Cabin Đơn",
+        "maCabin": 13,
+        "maChuyen": "CX1",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B05"
+      },
+      "Cabin14": {
+        "gia": 250000,
+        "loai": "Cabin Đôi",
+        "maCabin": 14,
+        "maChuyen": "CX1",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B06"
+      },
+      "Cabin15": {
+        "gia": 250000,
+        "loai": "Cabin Đơn",
+        "maCabin": 15,
+        "maChuyen": "CX1",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B07"
+      },
+      "Cabin16": {
+        "gia": 250000,
+        "loai": "Cabin Đôi",
+        "maCabin": 16,
+        "maChuyen": "CX1",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B08"
+      },
+      "Cabin2": {
+        "gia": 200000,
+        "loai": "Cabin Đôi",
+        "maCabin": 2,
+        "maChuyen": "CX1",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A02"
+      },
+      "Cabin3": {
+        "gia": 200000,
+        "loai": "Cabin Đơn",
+        "maCabin": 3,
+        "maChuyen": "CX1",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A03"
+      },
+      "Cabin4": {
+        "gia": 200000,
+        "loai": "Cabin Đôi",
+        "maCabin": 4,
+        "maChuyen": "CX1",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A04"
+      },
+      "Cabin5": {
+        "gia": 200000,
+        "loai": "Cabin Đơn",
+        "maCabin": 5,
+        "maChuyen": "CX1",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A05"
+      },
+      "Cabin6": {
+        "gia": 200000,
+        "loai": "Cabin Đôi",
+        "maCabin": 6,
+        "maChuyen": "CX1",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A06"
+      },
+      "Cabin7": {
+        "gia": 200000,
+        "loai": "Cabin Đơn",
+        "maCabin": 7,
+        "maChuyen": "CX1",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A07"
+      },
+      "Cabin8": {
+        "gia": 200000,
+        "loai": "Cabin Đôi",
+        "maCabin": 8,
+        "maChuyen": "CX1",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A08"
+      },
+      "Cabin9": {
+        "gia": 250000,
+        "loai": "Cabin Đơn",
+        "maCabin": 9,
+        "maChuyen": "CX1",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B01"
+      }
+    },
+    "CX10": {
+      "Cabin1": {
+        "gia": 200000,
+        "loai": "Cabin Đơn",
+        "maCabin": 1,
+        "maChuyen": "CX10",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A01"
+      },
+      "Cabin10": {
+        "gia": 250000,
+        "loai": "Cabin Đôi",
+        "maCabin": 10,
+        "maChuyen": "CX10",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B02"
+      },
+      "Cabin11": {
+        "gia": 250000,
+        "loai": "Cabin Đơn",
+        "maCabin": 11,
+        "maChuyen": "CX10",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B03"
+      },
+      "Cabin12": {
+        "gia": 250000,
+        "loai": "Cabin Đôi",
+        "maCabin": 12,
+        "maChuyen": "CX10",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B04"
+      },
+      "Cabin13": {
+        "gia": 250000,
+        "loai": "Cabin Đơn",
+        "maCabin": 13,
+        "maChuyen": "CX10",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B05"
+      },
+      "Cabin14": {
+        "gia": 250000,
+        "loai": "Cabin Đôi",
+        "maCabin": 14,
+        "maChuyen": "CX10",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B06"
+      },
+      "Cabin15": {
+        "gia": 250000,
+        "loai": "Cabin Đơn",
+        "maCabin": 15,
+        "maChuyen": "CX10",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B07"
+      },
+      "Cabin16": {
+        "gia": 250000,
+        "loai": "Cabin Đôi",
+        "maCabin": 16,
+        "maChuyen": "CX10",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B08"
+      },
+      "Cabin2": {
+        "gia": 200000,
+        "loai": "Cabin Đôi",
+        "maCabin": 2,
+        "maChuyen": "CX10",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A02"
+      },
+      "Cabin3": {
+        "gia": 200000,
+        "loai": "Cabin Đơn",
+        "maCabin": 3,
+        "maChuyen": "CX10",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A03"
+      },
+      "Cabin4": {
+        "gia": 200000,
+        "loai": "Cabin Đôi",
+        "maCabin": 4,
+        "maChuyen": "CX10",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A04"
+      },
+      "Cabin5": {
+        "gia": 200000,
+        "loai": "Cabin Đơn",
+        "maCabin": 5,
+        "maChuyen": "CX10",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A05"
+      },
+      "Cabin6": {
+        "gia": 200000,
+        "loai": "Cabin Đôi",
+        "maCabin": 6,
+        "maChuyen": "CX10",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A06"
+      },
+      "Cabin7": {
+        "gia": 200000,
+        "loai": "Cabin Đơn",
+        "maCabin": 7,
+        "maChuyen": "CX10",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A07"
+      },
+      "Cabin8": {
+        "gia": 200000,
+        "loai": "Cabin Đôi",
+        "maCabin": 8,
+        "maChuyen": "CX10",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A08"
+      },
+      "Cabin9": {
+        "gia": 250000,
+        "loai": "Cabin Đơn",
+        "maCabin": 9,
+        "maChuyen": "CX10",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B01"
+      }
+    },
+    "CX11": {
+      "Cabin1": {
+        "gia": 200000,
+        "loai": "Cabin Đơn",
+        "maCabin": 1,
+        "maChuyen": "CX11",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A01"
+      },
+      "Cabin10": {
+        "gia": 250000,
+        "loai": "Cabin Đôi",
+        "maCabin": 10,
+        "maChuyen": "CX11",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B02"
+      },
+      "Cabin11": {
+        "gia": 250000,
+        "loai": "Cabin Đơn",
+        "maCabin": 11,
+        "maChuyen": "CX11",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B03"
+      },
+      "Cabin12": {
+        "gia": 250000,
+        "loai": "Cabin Đôi",
+        "maCabin": 12,
+        "maChuyen": "CX11",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B04"
+      },
+      "Cabin13": {
+        "gia": 250000,
+        "loai": "Cabin Đơn",
+        "maCabin": 13,
+        "maChuyen": "CX11",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B05"
+      },
+      "Cabin14": {
+        "gia": 250000,
+        "loai": "Cabin Đôi",
+        "maCabin": 14,
+        "maChuyen": "CX11",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B06"
+      },
+      "Cabin15": {
+        "gia": 250000,
+        "loai": "Cabin Đơn",
+        "maCabin": 15,
+        "maChuyen": "CX11",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B07"
+      },
+      "Cabin16": {
+        "gia": 250000,
+        "loai": "Cabin Đôi",
+        "maCabin": 16,
+        "maChuyen": "CX11",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B08"
+      },
+      "Cabin2": {
+        "gia": 200000,
+        "loai": "Cabin Đôi",
+        "maCabin": 2,
+        "maChuyen": "CX11",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A02"
+      },
+      "Cabin3": {
+        "gia": 200000,
+        "loai": "Cabin Đơn",
+        "maCabin": 3,
+        "maChuyen": "CX11",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A03"
+      },
+      "Cabin4": {
+        "gia": 200000,
+        "loai": "Cabin Đôi",
+        "maCabin": 4,
+        "maChuyen": "CX11",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A04"
+      },
+      "Cabin5": {
+        "gia": 200000,
+        "loai": "Cabin Đơn",
+        "maCabin": 5,
+        "maChuyen": "CX11",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A05"
+      },
+      "Cabin6": {
+        "gia": 200000,
+        "loai": "Cabin Đôi",
+        "maCabin": 6,
+        "maChuyen": "CX11",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A06"
+      },
+      "Cabin7": {
+        "gia": 200000,
+        "loai": "Cabin Đơn",
+        "maCabin": 7,
+        "maChuyen": "CX11",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A07"
+      },
+      "Cabin8": {
+        "gia": 200000,
+        "loai": "Cabin Đôi",
+        "maCabin": 8,
+        "maChuyen": "CX11",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A08"
+      },
+      "Cabin9": {
+        "gia": 250000,
+        "loai": "Cabin Đơn",
+        "maCabin": 9,
+        "maChuyen": "CX11",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B01"
+      }
+    },
+    "CX12": {
+      "Cabin1": {
+        "gia": 200000,
+        "loai": "Cabin Đơn",
+        "maCabin": 1,
+        "maChuyen": "CX12",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A01"
+      },
+      "Cabin10": {
+        "gia": 250000,
+        "loai": "Cabin Đôi",
+        "maCabin": 10,
+        "maChuyen": "CX12",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B02"
+      },
+      "Cabin11": {
+        "gia": 250000,
+        "loai": "Cabin Đơn",
+        "maCabin": 11,
+        "maChuyen": "CX12",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B03"
+      },
+      "Cabin12": {
+        "gia": 250000,
+        "loai": "Cabin Đôi",
+        "maCabin": 12,
+        "maChuyen": "CX12",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B04"
+      },
+      "Cabin13": {
+        "gia": 250000,
+        "loai": "Cabin Đơn",
+        "maCabin": 13,
+        "maChuyen": "CX12",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B05"
+      },
+      "Cabin14": {
+        "gia": 250000,
+        "loai": "Cabin Đôi",
+        "maCabin": 14,
+        "maChuyen": "CX12",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B06"
+      },
+      "Cabin15": {
+        "gia": 250000,
+        "loai": "Cabin Đơn",
+        "maCabin": 15,
+        "maChuyen": "CX12",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B07"
+      },
+      "Cabin16": {
+        "gia": 250000,
+        "loai": "Cabin Đôi",
+        "maCabin": 16,
+        "maChuyen": "CX12",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B08"
+      },
+      "Cabin2": {
+        "gia": 200000,
+        "loai": "Cabin Đôi",
+        "maCabin": 2,
+        "maChuyen": "CX12",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A02"
+      },
+      "Cabin3": {
+        "gia": 200000,
+        "loai": "Cabin Đơn",
+        "maCabin": 3,
+        "maChuyen": "CX12",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A03"
+      },
+      "Cabin4": {
+        "gia": 200000,
+        "loai": "Cabin Đôi",
+        "maCabin": 4,
+        "maChuyen": "CX12",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A04"
+      },
+      "Cabin5": {
+        "gia": 200000,
+        "loai": "Cabin Đơn",
+        "maCabin": 5,
+        "maChuyen": "CX12",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A05"
+      },
+      "Cabin6": {
+        "gia": 200000,
+        "loai": "Cabin Đôi",
+        "maCabin": 6,
+        "maChuyen": "CX12",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A06"
+      },
+      "Cabin7": {
+        "gia": 200000,
+        "loai": "Cabin Đơn",
+        "maCabin": 7,
+        "maChuyen": "CX12",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A07"
+      },
+      "Cabin8": {
+        "gia": 200000,
+        "loai": "Cabin Đôi",
+        "maCabin": 8,
+        "maChuyen": "CX12",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A08"
+      },
+      "Cabin9": {
+        "gia": 250000,
+        "loai": "Cabin Đơn",
+        "maCabin": 9,
+        "maChuyen": "CX12",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B01"
+      }
+    },
+    "CX2": {
+      "Cabin1": {
+        "gia": 200000,
+        "loai": "Cabin Đơn",
+        "maCabin": 1,
+        "maChuyen": "CX2",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A01"
+      },
+      "Cabin10": {
+        "gia": 250000,
+        "loai": "Cabin Đôi",
+        "maCabin": 10,
+        "maChuyen": "CX2",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B02"
+      },
+      "Cabin11": {
+        "gia": 250000,
+        "loai": "Cabin Đơn",
+        "maCabin": 11,
+        "maChuyen": "CX2",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B03"
+      },
+      "Cabin12": {
+        "gia": 250000,
+        "loai": "Cabin Đôi",
+        "maCabin": 12,
+        "maChuyen": "CX2",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B04"
+      },
+      "Cabin13": {
+        "gia": 250000,
+        "loai": "Cabin Đơn",
+        "maCabin": 13,
+        "maChuyen": "CX2",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B05"
+      },
+      "Cabin14": {
+        "gia": 250000,
+        "loai": "Cabin Đôi",
+        "maCabin": 14,
+        "maChuyen": "CX2",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B06"
+      },
+      "Cabin15": {
+        "gia": 250000,
+        "loai": "Cabin Đơn",
+        "maCabin": 15,
+        "maChuyen": "CX2",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B07"
+      },
+      "Cabin16": {
+        "gia": 250000,
+        "loai": "Cabin Đôi",
+        "maCabin": 16,
+        "maChuyen": "CX2",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B08"
+      },
+      "Cabin2": {
+        "gia": 200000,
+        "loai": "Cabin Đôi",
+        "maCabin": 2,
+        "maChuyen": "CX2",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A02"
+      },
+      "Cabin3": {
+        "gia": 200000,
+        "loai": "Cabin Đơn",
+        "maCabin": 3,
+        "maChuyen": "CX2",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A03"
+      },
+      "Cabin4": {
+        "gia": 200000,
+        "loai": "Cabin Đôi",
+        "maCabin": 4,
+        "maChuyen": "CX2",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A04"
+      },
+      "Cabin5": {
+        "gia": 200000,
+        "loai": "Cabin Đơn",
+        "maCabin": 5,
+        "maChuyen": "CX2",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A05"
+      },
+      "Cabin6": {
+        "gia": 200000,
+        "loai": "Cabin Đôi",
+        "maCabin": 6,
+        "maChuyen": "CX2",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A06"
+      },
+      "Cabin7": {
+        "gia": 200000,
+        "loai": "Cabin Đơn",
+        "maCabin": 7,
+        "maChuyen": "CX2",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A07"
+      },
+      "Cabin8": {
+        "gia": 200000,
+        "loai": "Cabin Đôi",
+        "maCabin": 8,
+        "maChuyen": "CX2",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A08"
+      },
+      "Cabin9": {
+        "gia": 250000,
+        "loai": "Cabin Đơn",
+        "maCabin": 9,
+        "maChuyen": "CX2",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B01"
+      }
+    },
+    "CX3": {
+      "Cabin1": {
+        "gia": 200000,
+        "loai": "Cabin Đơn",
+        "maCabin": 1,
+        "maChuyen": "CX3",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A01"
+      },
+      "Cabin10": {
+        "gia": 250000,
+        "loai": "Cabin Đôi",
+        "maCabin": 10,
+        "maChuyen": "CX3",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B02"
+      },
+      "Cabin11": {
+        "gia": 250000,
+        "loai": "Cabin Đơn",
+        "maCabin": 11,
+        "maChuyen": "CX3",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B03"
+      },
+      "Cabin12": {
+        "gia": 250000,
+        "loai": "Cabin Đôi",
+        "maCabin": 12,
+        "maChuyen": "CX3",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B04"
+      },
+      "Cabin13": {
+        "gia": 250000,
+        "loai": "Cabin Đơn",
+        "maCabin": 13,
+        "maChuyen": "CX3",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B05"
+      },
+      "Cabin14": {
+        "gia": 250000,
+        "loai": "Cabin Đôi",
+        "maCabin": 14,
+        "maChuyen": "CX3",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B06"
+      },
+      "Cabin15": {
+        "gia": 250000,
+        "loai": "Cabin Đơn",
+        "maCabin": 15,
+        "maChuyen": "CX3",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B07"
+      },
+      "Cabin16": {
+        "gia": 250000,
+        "loai": "Cabin Đôi",
+        "maCabin": 16,
+        "maChuyen": "CX3",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B08"
+      },
+      "Cabin2": {
+        "gia": 200000,
+        "loai": "Cabin Đôi",
+        "maCabin": 2,
+        "maChuyen": "CX3",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A02"
+      },
+      "Cabin3": {
+        "gia": 200000,
+        "loai": "Cabin Đơn",
+        "maCabin": 3,
+        "maChuyen": "CX3",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A03"
+      },
+      "Cabin4": {
+        "gia": 200000,
+        "loai": "Cabin Đôi",
+        "maCabin": 4,
+        "maChuyen": "CX3",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A04"
+      },
+      "Cabin5": {
+        "gia": 200000,
+        "loai": "Cabin Đơn",
+        "maCabin": 5,
+        "maChuyen": "CX3",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A05"
+      },
+      "Cabin6": {
+        "gia": 200000,
+        "loai": "Cabin Đôi",
+        "maCabin": 6,
+        "maChuyen": "CX3",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A06"
+      },
+      "Cabin7": {
+        "gia": 200000,
+        "loai": "Cabin Đơn",
+        "maCabin": 7,
+        "maChuyen": "CX3",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A07"
+      },
+      "Cabin8": {
+        "gia": 200000,
+        "loai": "Cabin Đôi",
+        "maCabin": 8,
+        "maChuyen": "CX3",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A08"
+      },
+      "Cabin9": {
+        "gia": 250000,
+        "loai": "Cabin Đơn",
+        "maCabin": 9,
+        "maChuyen": "CX3",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B01"
+      }
+    },
+    "CX4": {
+      "Cabin1": {
+        "gia": 200000,
+        "loai": "Cabin Đơn",
+        "maCabin": 1,
+        "maChuyen": "CX4",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A01"
+      },
+      "Cabin10": {
+        "gia": 250000,
+        "loai": "Cabin Đôi",
+        "maCabin": 10,
+        "maChuyen": "CX4",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B02"
+      },
+      "Cabin11": {
+        "gia": 250000,
+        "loai": "Cabin Đơn",
+        "maCabin": 11,
+        "maChuyen": "CX4",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B03"
+      },
+      "Cabin12": {
+        "gia": 250000,
+        "loai": "Cabin Đôi",
+        "maCabin": 12,
+        "maChuyen": "CX4",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B04"
+      },
+      "Cabin13": {
+        "gia": 250000,
+        "loai": "Cabin Đơn",
+        "maCabin": 13,
+        "maChuyen": "CX4",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B05"
+      },
+      "Cabin14": {
+        "gia": 250000,
+        "loai": "Cabin Đôi",
+        "maCabin": 14,
+        "maChuyen": "CX4",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B06"
+      },
+      "Cabin15": {
+        "gia": 250000,
+        "loai": "Cabin Đơn",
+        "maCabin": 15,
+        "maChuyen": "CX4",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B07"
+      },
+      "Cabin16": {
+        "gia": 250000,
+        "loai": "Cabin Đôi",
+        "maCabin": 16,
+        "maChuyen": "CX4",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B08"
+      },
+      "Cabin2": {
+        "gia": 200000,
+        "loai": "Cabin Đôi",
+        "maCabin": 2,
+        "maChuyen": "CX4",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A02"
+      },
+      "Cabin3": {
+        "gia": 200000,
+        "loai": "Cabin Đơn",
+        "maCabin": 3,
+        "maChuyen": "CX4",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A03"
+      },
+      "Cabin4": {
+        "gia": 200000,
+        "loai": "Cabin Đôi",
+        "maCabin": 4,
+        "maChuyen": "CX4",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A04"
+      },
+      "Cabin5": {
+        "gia": 200000,
+        "loai": "Cabin Đơn",
+        "maCabin": 5,
+        "maChuyen": "CX4",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A05"
+      },
+      "Cabin6": {
+        "gia": 200000,
+        "loai": "Cabin Đôi",
+        "maCabin": 6,
+        "maChuyen": "CX4",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A06"
+      },
+      "Cabin7": {
+        "gia": 200000,
+        "loai": "Cabin Đơn",
+        "maCabin": 7,
+        "maChuyen": "CX4",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A07"
+      },
+      "Cabin8": {
+        "gia": 200000,
+        "loai": "Cabin Đôi",
+        "maCabin": 8,
+        "maChuyen": "CX4",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A08"
+      },
+      "Cabin9": {
+        "gia": 250000,
+        "loai": "Cabin Đơn",
+        "maCabin": 9,
+        "maChuyen": "CX4",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B01"
+      }
+    },
+    "CX5": {
+      "Cabin1": {
+        "gia": 200000,
+        "loai": "Cabin Đơn",
+        "maCabin": 1,
+        "maChuyen": "CX5",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A01"
+      },
+      "Cabin10": {
+        "gia": 250000,
+        "loai": "Cabin Đôi",
+        "maCabin": 10,
+        "maChuyen": "CX5",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B02"
+      },
+      "Cabin11": {
+        "gia": 250000,
+        "loai": "Cabin Đơn",
+        "maCabin": 11,
+        "maChuyen": "CX5",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B03"
+      },
+      "Cabin12": {
+        "gia": 250000,
+        "loai": "Cabin Đôi",
+        "maCabin": 12,
+        "maChuyen": "CX5",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B04"
+      },
+      "Cabin13": {
+        "gia": 250000,
+        "loai": "Cabin Đơn",
+        "maCabin": 13,
+        "maChuyen": "CX5",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B05"
+      },
+      "Cabin14": {
+        "gia": 250000,
+        "loai": "Cabin Đôi",
+        "maCabin": 14,
+        "maChuyen": "CX5",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B06"
+      },
+      "Cabin15": {
+        "gia": 250000,
+        "loai": "Cabin Đơn",
+        "maCabin": 15,
+        "maChuyen": "CX5",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B07"
+      },
+      "Cabin16": {
+        "gia": 250000,
+        "loai": "Cabin Đôi",
+        "maCabin": 16,
+        "maChuyen": "CX5",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B08"
+      },
+      "Cabin2": {
+        "gia": 200000,
+        "loai": "Cabin Đôi",
+        "maCabin": 2,
+        "maChuyen": "CX5",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A02"
+      },
+      "Cabin3": {
+        "gia": 200000,
+        "loai": "Cabin Đơn",
+        "maCabin": 3,
+        "maChuyen": "CX5",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A03"
+      },
+      "Cabin4": {
+        "gia": 200000,
+        "loai": "Cabin Đôi",
+        "maCabin": 4,
+        "maChuyen": "CX5",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A04"
+      },
+      "Cabin5": {
+        "gia": 200000,
+        "loai": "Cabin Đơn",
+        "maCabin": 5,
+        "maChuyen": "CX5",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A05"
+      },
+      "Cabin6": {
+        "gia": 200000,
+        "loai": "Cabin Đôi",
+        "maCabin": 6,
+        "maChuyen": "CX5",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A06"
+      },
+      "Cabin7": {
+        "gia": 200000,
+        "loai": "Cabin Đơn",
+        "maCabin": 7,
+        "maChuyen": "CX5",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A07"
+      },
+      "Cabin8": {
+        "gia": 200000,
+        "loai": "Cabin Đôi",
+        "maCabin": 8,
+        "maChuyen": "CX5",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A08"
+      },
+      "Cabin9": {
+        "gia": 250000,
+        "loai": "Cabin Đơn",
+        "maCabin": 9,
+        "maChuyen": "CX5",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B01"
+      }
+    },
+    "CX6": {
+      "Cabin1": {
+        "gia": 200000,
+        "loai": "Cabin Đơn",
+        "maCabin": 1,
+        "maChuyen": "CX6",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A01"
+      },
+      "Cabin10": {
+        "gia": 250000,
+        "loai": "Cabin Đôi",
+        "maCabin": 10,
+        "maChuyen": "CX6",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B02"
+      },
+      "Cabin11": {
+        "gia": 250000,
+        "loai": "Cabin Đơn",
+        "maCabin": 11,
+        "maChuyen": "CX6",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B03"
+      },
+      "Cabin12": {
+        "gia": 250000,
+        "loai": "Cabin Đôi",
+        "maCabin": 12,
+        "maChuyen": "CX6",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B04"
+      },
+      "Cabin13": {
+        "gia": 250000,
+        "loai": "Cabin Đơn",
+        "maCabin": 13,
+        "maChuyen": "CX6",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B05"
+      },
+      "Cabin14": {
+        "gia": 250000,
+        "loai": "Cabin Đôi",
+        "maCabin": 14,
+        "maChuyen": "CX6",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B06"
+      },
+      "Cabin15": {
+        "gia": 250000,
+        "loai": "Cabin Đơn",
+        "maCabin": 15,
+        "maChuyen": "CX6",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B07"
+      },
+      "Cabin16": {
+        "gia": 250000,
+        "loai": "Cabin Đôi",
+        "maCabin": 16,
+        "maChuyen": "CX6",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B08"
+      },
+      "Cabin2": {
+        "gia": 200000,
+        "loai": "Cabin Đôi",
+        "maCabin": 2,
+        "maChuyen": "CX6",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A02"
+      },
+      "Cabin3": {
+        "gia": 200000,
+        "loai": "Cabin Đơn",
+        "maCabin": 3,
+        "maChuyen": "CX6",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A03"
+      },
+      "Cabin4": {
+        "gia": 200000,
+        "loai": "Cabin Đôi",
+        "maCabin": 4,
+        "maChuyen": "CX6",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A04"
+      },
+      "Cabin5": {
+        "gia": 200000,
+        "loai": "Cabin Đơn",
+        "maCabin": 5,
+        "maChuyen": "CX6",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A05"
+      },
+      "Cabin6": {
+        "gia": 200000,
+        "loai": "Cabin Đôi",
+        "maCabin": 6,
+        "maChuyen": "CX6",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A06"
+      },
+      "Cabin7": {
+        "gia": 200000,
+        "loai": "Cabin Đơn",
+        "maCabin": 7,
+        "maChuyen": "CX6",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A07"
+      },
+      "Cabin8": {
+        "gia": 200000,
+        "loai": "Cabin Đôi",
+        "maCabin": 8,
+        "maChuyen": "CX6",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A08"
+      },
+      "Cabin9": {
+        "gia": 250000,
+        "loai": "Cabin Đơn",
+        "maCabin": 9,
+        "maChuyen": "CX6",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B01"
+      }
+    },
+    "CX7": {
+      "Cabin1": {
+        "gia": 200000,
+        "loai": "Cabin Đơn",
+        "maCabin": 1,
+        "maChuyen": "CX7",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A01"
+      },
+      "Cabin10": {
+        "gia": 250000,
+        "loai": "Cabin Đôi",
+        "maCabin": 10,
+        "maChuyen": "CX7",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B02"
+      },
+      "Cabin11": {
+        "gia": 250000,
+        "loai": "Cabin Đơn",
+        "maCabin": 11,
+        "maChuyen": "CX7",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B03"
+      },
+      "Cabin12": {
+        "gia": 250000,
+        "loai": "Cabin Đôi",
+        "maCabin": 12,
+        "maChuyen": "CX7",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B04"
+      },
+      "Cabin13": {
+        "gia": 250000,
+        "loai": "Cabin Đơn",
+        "maCabin": 13,
+        "maChuyen": "CX7",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B05"
+      },
+      "Cabin14": {
+        "gia": 250000,
+        "loai": "Cabin Đôi",
+        "maCabin": 14,
+        "maChuyen": "CX7",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B06"
+      },
+      "Cabin15": {
+        "gia": 250000,
+        "loai": "Cabin Đơn",
+        "maCabin": 15,
+        "maChuyen": "CX7",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B07"
+      },
+      "Cabin16": {
+        "gia": 250000,
+        "loai": "Cabin Đôi",
+        "maCabin": 16,
+        "maChuyen": "CX7",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B08"
+      },
+      "Cabin2": {
+        "gia": 200000,
+        "loai": "Cabin Đôi",
+        "maCabin": 2,
+        "maChuyen": "CX7",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A02"
+      },
+      "Cabin3": {
+        "gia": 200000,
+        "loai": "Cabin Đơn",
+        "maCabin": 3,
+        "maChuyen": "CX7",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A03"
+      },
+      "Cabin4": {
+        "gia": 200000,
+        "loai": "Cabin Đôi",
+        "maCabin": 4,
+        "maChuyen": "CX7",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A04"
+      },
+      "Cabin5": {
+        "gia": 200000,
+        "loai": "Cabin Đơn",
+        "maCabin": 5,
+        "maChuyen": "CX7",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A05"
+      },
+      "Cabin6": {
+        "gia": 200000,
+        "loai": "Cabin Đôi",
+        "maCabin": 6,
+        "maChuyen": "CX7",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A06"
+      },
+      "Cabin7": {
+        "gia": 200000,
+        "loai": "Cabin Đơn",
+        "maCabin": 7,
+        "maChuyen": "CX7",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A07"
+      },
+      "Cabin8": {
+        "gia": 200000,
+        "loai": "Cabin Đôi",
+        "maCabin": 8,
+        "maChuyen": "CX7",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A08"
+      },
+      "Cabin9": {
+        "gia": 250000,
+        "loai": "Cabin Đơn",
+        "maCabin": 9,
+        "maChuyen": "CX7",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B01"
+      }
+    },
+    "CX8": {
+      "Cabin1": {
+        "gia": 200000,
+        "loai": "Cabin Đơn",
+        "maCabin": 1,
+        "maChuyen": "CX8",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A01"
+      },
+      "Cabin10": {
+        "gia": 250000,
+        "loai": "Cabin Đôi",
+        "maCabin": 10,
+        "maChuyen": "CX8",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B02"
+      },
+      "Cabin11": {
+        "gia": 250000,
+        "loai": "Cabin Đơn",
+        "maCabin": 11,
+        "maChuyen": "CX8",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B03"
+      },
+      "Cabin12": {
+        "gia": 250000,
+        "loai": "Cabin Đôi",
+        "maCabin": 12,
+        "maChuyen": "CX8",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B04"
+      },
+      "Cabin13": {
+        "gia": 250000,
+        "loai": "Cabin Đơn",
+        "maCabin": 13,
+        "maChuyen": "CX8",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B05"
+      },
+      "Cabin14": {
+        "gia": 250000,
+        "loai": "Cabin Đôi",
+        "maCabin": 14,
+        "maChuyen": "CX8",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B06"
+      },
+      "Cabin15": {
+        "gia": 250000,
+        "loai": "Cabin Đơn",
+        "maCabin": 15,
+        "maChuyen": "CX8",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B07"
+      },
+      "Cabin16": {
+        "gia": 250000,
+        "loai": "Cabin Đôi",
+        "maCabin": 16,
+        "maChuyen": "CX8",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B08"
+      },
+      "Cabin2": {
+        "gia": 200000,
+        "loai": "Cabin Đôi",
+        "maCabin": 2,
+        "maChuyen": "CX8",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A02"
+      },
+      "Cabin3": {
+        "gia": 200000,
+        "loai": "Cabin Đơn",
+        "maCabin": 3,
+        "maChuyen": "CX8",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A03"
+      },
+      "Cabin4": {
+        "gia": 200000,
+        "loai": "Cabin Đôi",
+        "maCabin": 4,
+        "maChuyen": "CX8",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A04"
+      },
+      "Cabin5": {
+        "gia": 200000,
+        "loai": "Cabin Đơn",
+        "maCabin": 5,
+        "maChuyen": "CX8",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A05"
+      },
+      "Cabin6": {
+        "gia": 200000,
+        "loai": "Cabin Đôi",
+        "maCabin": 6,
+        "maChuyen": "CX8",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A06"
+      },
+      "Cabin7": {
+        "gia": 200000,
+        "loai": "Cabin Đơn",
+        "maCabin": 7,
+        "maChuyen": "CX8",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A07"
+      },
+      "Cabin8": {
+        "gia": 200000,
+        "loai": "Cabin Đôi",
+        "maCabin": 8,
+        "maChuyen": "CX8",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A08"
+      },
+      "Cabin9": {
+        "gia": 250000,
+        "loai": "Cabin Đơn",
+        "maCabin": 9,
+        "maChuyen": "CX8",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B01"
+      }
+    },
+    "CX9": {
+      "Cabin1": {
+        "gia": 200000,
+        "loai": "Cabin Đơn",
+        "maCabin": 1,
+        "maChuyen": "CX9",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A01"
+      },
+      "Cabin10": {
+        "gia": 250000,
+        "loai": "Cabin Đôi",
+        "maCabin": 10,
+        "maChuyen": "CX9",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B02"
+      },
+      "Cabin11": {
+        "gia": 250000,
+        "loai": "Cabin Đơn",
+        "maCabin": 11,
+        "maChuyen": "CX9",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B03"
+      },
+      "Cabin12": {
+        "gia": 250000,
+        "loai": "Cabin Đôi",
+        "maCabin": 12,
+        "maChuyen": "CX9",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B04"
+      },
+      "Cabin13": {
+        "gia": 250000,
+        "loai": "Cabin Đơn",
+        "maCabin": 13,
+        "maChuyen": "CX9",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B05"
+      },
+      "Cabin14": {
+        "gia": 250000,
+        "loai": "Cabin Đôi",
+        "maCabin": 14,
+        "maChuyen": "CX9",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B06"
+      },
+      "Cabin15": {
+        "gia": 250000,
+        "loai": "Cabin Đơn",
+        "maCabin": 15,
+        "maChuyen": "CX9",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B07"
+      },
+      "Cabin16": {
+        "gia": 250000,
+        "loai": "Cabin Đôi",
+        "maCabin": 16,
+        "maChuyen": "CX9",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B08"
+      },
+      "Cabin2": {
+        "gia": 200000,
+        "loai": "Cabin Đôi",
+        "maCabin": 2,
+        "maChuyen": "CX9",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A02"
+      },
+      "Cabin3": {
+        "gia": 200000,
+        "loai": "Cabin Đơn",
+        "maCabin": 3,
+        "maChuyen": "CX9",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A03"
+      },
+      "Cabin4": {
+        "gia": 200000,
+        "loai": "Cabin Đôi",
+        "maCabin": 4,
+        "maChuyen": "CX9",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A04"
+      },
+      "Cabin5": {
+        "gia": 200000,
+        "loai": "Cabin Đơn",
+        "maCabin": 5,
+        "maChuyen": "CX9",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A05"
+      },
+      "Cabin6": {
+        "gia": 200000,
+        "loai": "Cabin Đôi",
+        "maCabin": 6,
+        "maChuyen": "CX9",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A06"
+      },
+      "Cabin7": {
+        "gia": 200000,
+        "loai": "Cabin Đơn",
+        "maCabin": 7,
+        "maChuyen": "CX9",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A07"
+      },
+      "Cabin8": {
+        "gia": 200000,
+        "loai": "Cabin Đôi",
+        "maCabin": 8,
+        "maChuyen": "CX9",
+        "tang": 1,
+        "trangThai": "Trong",
+        "viTri": "A08"
+      },
+      "Cabin9": {
+        "gia": 250000,
+        "loai": "Cabin Đơn",
+        "maCabin": 9,
+        "maChuyen": "CX9",
+        "tang": 2,
+        "trangThai": "Trong",
+        "viTri": "B01"
+      }
+    }
+  },
+  "ChuyenXe": {
+    "ChuyenCX1": {
+      "diemDen": "Hải Phòng",
+      "diemDi": "Hà Nội",
+      "diemDon": "Hà Nội",
+      "diemTra": "Hải Phòng",
+      "giaVe": 150000,
+      "gioDen": "08:00",
+      "gioDi": "06:00",
+      "idChuyen": "CX1",
+      "idTuyen": "Tuyen1",
+      "loaiXe": "Giường nằm",
+      "ngayKhoiHanh": "2025-04-12",
+      "tenNhaXe": "Xe 1"
+    },
+    "ChuyenCX10": {
+      "diemDen": "Bình Dương",
+      "diemDi": "Sài Gòn",
+      "diemDon": "Sài Gòn",
+      "diemTra": "Bình Dương",
+      "giaVe": 110000,
+      "gioDen": "17:00",
+      "gioDi": "15:00",
+      "idChuyen": "CX10",
+      "idTuyen": "Tuyen10",
+      "loaiXe": "Ghế ngồi",
+      "ngayKhoiHanh": "2025-05-15",
+      "tenNhaXe": "Xe 10"
+    },
+    "ChuyenCX11": {
+      "diemDen": "Hải Phòng",
+      "diemDi": "Hà Nội",
+      "diemDon": "Hà Nội",
+      "diemTra": "Hải Phòng",
+      "giaVe": 150000,
+      "gioDen": "11:00",
+      "gioDi": "09:00",
+      "idChuyen": "CX11",
+      "idTuyen": "Tuyen1",
+      "loaiXe": "Giường nằm",
+      "ngayKhoiHanh": "2025-04-12",
+      "tenNhaXe": "Xe 3"
+    },
+    "ChuyenCX12": {
+      "diemDen": "Hải Phòng",
+      "diemDi": "Hà Nội",
+      "diemDon": "Hà Nội",
+      "diemTra": "Hải Phòng",
+      "giaVe": 180000,
+      "gioDen": "15:00",
+      "gioDi": "13:00",
+      "idChuyen": "CX12",
+      "idTuyen": "Tuyen1",
+      "loaiXe": "Limousine",
+      "ngayKhoiHanh": "2025-04-12",
+      "tenNhaXe": "Xe 4"
+    },
+    "ChuyenCX2": {
+      "diemDen": "Vũng Tàu",
+      "diemDi": "Sài Gòn",
+      "diemDon": "Sài Gòn",
+      "diemTra": "Vũng Tàu",
+      "giaVe": 100000,
+      "gioDen": "09:30",
+      "gioDi": "07:00",
+      "idChuyen": "CX2",
+      "idTuyen": "Tuyen2",
+      "loaiXe": "Ghế ngồi",
+      "ngayKhoiHanh": "2025-04-12",
+      "tenNhaXe": "Xe 2"
+    },
+    "ChuyenCX3": {
+      "diemDen": "Huế",
+      "diemDi": "Đà Nẵng",
+      "diemDon": "Đà Nẵng",
+      "diemTra": "Huế",
+      "giaVe": 200000,
+      "gioDen": "10:00",
+      "gioDi": "08:00",
+      "idChuyen": "CX3",
+      "idTuyen": "Tuyen3",
+      "loaiXe": "Giường nằm",
+      "ngayKhoiHanh": "2025-04-15",
+      "tenNhaXe": "Xe 3"
+    },
+    "ChuyenCX4": {
+      "diemDen": "Quảng Ninh",
+      "diemDi": "Hà Nội",
+      "diemDon": "Hà Nội",
+      "diemTra": "Quảng Ninh",
+      "giaVe": 120000,
+      "gioDen": "11:00",
+      "gioDi": "09:00",
+      "idChuyen": "CX4",
+      "idTuyen": "Tuyen4",
+      "loaiXe": "Ghế ngồi",
+      "ngayKhoiHanh": "2025-04-20",
+      "tenNhaXe": "Xe 4"
+    },
+    "ChuyenCX5": {
+      "diemDen": "Đà Lạt",
+      "diemDi": "TPHCM",
+      "diemDon": "TPHCM",
+      "diemTra": "Đà Lạt",
+      "giaVe": 180000,
+      "gioDen": "12:00",
+      "gioDi": "10:00",
+      "idChuyen": "CX5",
+      "idTuyen": "Tuyen5",
+      "loaiXe": "Giường nằm",
+      "ngayKhoiHanh": "2025-04-22",
+      "tenNhaXe": "Xe 5"
+    },
+    "ChuyenCX6": {
+      "diemDen": "Hà Tĩnh",
+      "diemDi": "Vinh",
+      "diemDon": "Vinh",
+      "diemTra": "Hà Tĩnh",
+      "giaVe": 130000,
+      "gioDen": "13:00",
+      "gioDi": "11:00",
+      "idChuyen": "CX6",
+      "idTuyen": "Tuyen6",
+      "loaiXe": "Ghế ngồi",
+      "ngayKhoiHanh": "2025-04-25",
+      "tenNhaXe": "Xe 6"
+    },
+    "ChuyenCX7": {
+      "diemDen": "Ninh Bình",
+      "diemDi": "Hà Nội",
+      "diemDon": "Hà Nội",
+      "diemTra": "Ninh Bình",
+      "giaVe": 160000,
+      "gioDen": "14:00",
+      "gioDi": "12:00",
+      "idChuyen": "CX7",
+      "idTuyen": "Tuyen7",
+      "loaiXe": "Giường nằm",
+      "ngayKhoiHanh": "2025-04-30",
+      "tenNhaXe": "Xe 7"
+    },
+    "ChuyenCX8": {
+      "diemDen": "Quảng Trị",
+      "diemDi": "Huế",
+      "diemDon": "Huế",
+      "diemTra": "Quảng Trị",
+      "giaVe": 140000,
+      "gioDen": "15:00",
+      "gioDi": "13:00",
+      "idChuyen": "CX8",
+      "idTuyen": "Tuyen8",
+      "loaiXe": "Ghế ngồi",
+      "ngayKhoiHanh": "2025-05-05",
+      "tenNhaXe": "Xe 8"
+    },
+    "ChuyenCX9": {
+      "diemDen": "Quảng Nam",
+      "diemDi": "Đà Nẵng",
+      "diemDon": "Đà Nẵng",
+      "diemTra": "Quảng Nam",
+      "giaVe": 190000,
+      "gioDen": "16:00",
+      "gioDi": "14:00",
+      "idChuyen": "CX9",
+      "idTuyen": "Tuyen9",
+      "loaiXe": "Giường nằm",
+      "ngayKhoiHanh": "2025-05-10",
+      "tenNhaXe": "Xe 9"
+    }
+  },
+  "ThanhToan": {
+    "TT1": {
+      "maThanhToan": "TT1",
+      "phuongThuc": "Momo",
+      "soTien": 10000,
+      "thoiGian": "5:45 - 19/3/2024",
+      "trangThai": "Thành công"
+    }
+  },
+  "TuyenDuong": {
+    "Tuyen1": {
+      "diemDen": "Hải Phòng",
+      "diemDi": "Hà Nội",
+      "idTuyen": "Tuyen1"
+    },
+    "Tuyen2": {
+      "diemDen": "Vũng Tàu",
+      "diemDi": "Sài Gòn",
+      "idTuyen": "Tuyen2"
+    },
+    "Tuyen3": {
+      "diemDen": "Huế",
+      "diemDi": "Đà Nẵng",
+      "idTuyen": "Tuyen3"
+    },
+    "Tuyen4": {
+      "diemDen": "Sapa",
+      "diemDi": "Hà Nội",
+      "idTuyen": "Tuyen4"
+    },
+    "Tuyen5": {
+      "diemDen": "Long An",
+      "diemDi": "TP.HCM",
+      "idTuyen": "Tuyen5"
+    },
+    "Tuyen6": {
+      "diemDen": "Rạch Giá",
+      "diemDi": "Cần Thơ",
+      "idTuyen": "Tuyen6"
+    },
+    "Tuyen7": {
+      "diemDen": "Phan Thiết",
+      "diemDi": "Nha Trang",
+      "idTuyen": "Tuyen7"
+    }
+  },
+  "VeXe": {
+    "-ONa_buX5yWPsh1Oi9GS": {
+      "maCabin": "Cabin4",
+      "maChuyen": "CX6",
+      "maKH": "Cji8TpvlMUVmwt9udnaBjeKqDLz2",
+      "maThanhToan": "ZaloPay",
+      "thoiGianDatVe": "03:41:51 12/04/2025",
+      "trangThai": "Đã đặt"
+    },
+    "-ONafSj9kpm3kvaRPL_w": {
+      "maCabin": "Cabin4",
+      "maChuyen": "CX10",
+      "maKH": "Cji8TpvlMUVmwt9udnaBjeKqDLz2",
+      "maThanhToan": "Thanh toán tại nhà xe",
+      "thoiGianDatVe": "04:07:23 12/04/2025",
+      "trangThai": "Đã đặt"
+    },
+    "-ONagiVrvPlYmEkDqQa3": {
+      "maCabin": "Cabin15",
+      "maChuyen": "CX9",
+      "maKH": "Cji8TpvlMUVmwt9udnaBjeKqDLz2",
+      "maThanhToan": "ZaloPay",
+      "thoiGianDatVe": "04:12:53 12/04/2025",
+      "trangThai": "Đã đặt"
+    },
+    "-ONahkIMmw-qD-2xKcMX": {
+      "maCabin": "Cabin12",
+      "maChuyen": "CX11",
+      "maKH": "Cji8TpvlMUVmwt9udnaBjeKqDLz2",
+      "maThanhToan": "Thanh toán tại nhà xe",
+      "thoiGianDatVe": "04:17:23 12/04/2025",
+      "trangThai": "Đã đặt"
+    },
+    "-ONawXfpCkpC6Ik8Pvs_": {
+      "maCabin": "Cabin2",
+      "maChuyen": "CX1",
+      "maKH": "Cji8TpvlMUVmwt9udnaBjeKqDLz2",
+      "maThanhToan": "Thanh toán tại nhà xe",
+      "thoiGianDatVe": "05:22:07 12/04/2025",
+      "trangThai": "Đã đặt"
+    }
+  },
+  "users": {
+    "Cji8TpvlMUVmwt9udnaBjeKqDLz2": {
+      "approved": true,
+      "email": "a@gmail.com",
+      "fullName": "Trần Văn Dũng",
+      "phone": "0123456789",
+      "role": "customer",
+      "userId": "Cji8TpvlMUVmwt9udnaBjeKqDLz2",
+      "username": "dung"
+    },
+    "VTaQzqIXgNduLExyTi9TkIGuQJv1": {
+      "approved": true,
+      "email": "nva@gmail.com",
+      "fullName": "Nguyen Van A",
+      "phone": "1233445566",
+      "role": "customer",
+      "userId": "VTaQzqIXgNduLExyTi9TkIGuQJv1",
+      "username": "nva"
+    }
+  }
+}
