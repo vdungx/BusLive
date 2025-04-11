@@ -1,5 +1,6 @@
 package com.example.buslive.Activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
@@ -110,20 +111,23 @@ class ChonChoActivity : AppCompatActivity() {
 
         btnContinue.setOnClickListener {
             selectedCabin?.let {
-                Toast.makeText(this, "Tiếp tục với ghế: ${it.viTri}", Toast.LENGTH_SHORT).show()
-                // Gửi thông tin chuyến đi
-                intent.putExtra("tenNhaXe", tenNhaXe)
-                intent.putExtra("gioDi", gioDi)
-                intent.putExtra("ngayKhoiHanh", ngayKhoiHanh)
-                intent.putExtra("maChuyen", maChuyen)
+                // Tạo Intent để chuyển sang màn hình thanh toán
+                val thanhToanIntent = Intent(this, ThanhToanActivity::class.java)
 
+                // Gửi thông tin chuyến đi
+                thanhToanIntent.putExtra("tenNhaXe", tenNhaXe)
+                thanhToanIntent.putExtra("gioDi", gioDi)
+                thanhToanIntent.putExtra("ngayKhoiHanh", ngayKhoiHanh)
+                thanhToanIntent.putExtra("maChuyen", maChuyen)
 
                 // Gửi thông tin cabin đã chọn
-                intent.putExtra("viTri", selectedCabin?.viTri ?: "")
-                intent.putExtra("gia", selectedCabin?.gia ?: 0.0)
-                intent.putExtra("tang", selectedCabin?.tang ?: 0)
-                startActivity(intent)
+                thanhToanIntent.putExtra("viTri", it.viTri)
+                thanhToanIntent.putExtra("gia", it.gia)
+                thanhToanIntent.putExtra("tang", it.tang)
+
+                startActivity(thanhToanIntent)
             } ?: Toast.makeText(this, "Vui lòng chọn một ghế", Toast.LENGTH_SHORT).show()
         }
+
     }
 }

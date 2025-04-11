@@ -27,8 +27,6 @@ class MainActivity : AppCompatActivity() {
                 .commit()
         }
 
-        pushMultipleTuyenDuongData()
-        pushMultipleChuyenXeData()
 
         bottomNav.setOnItemSelectedListener { item ->
             when (item.itemId) {

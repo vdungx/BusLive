@@ -1,5 +1,5 @@
 plugins {
-    id("com.android.application") version "8.9.1"
+    id("com.android.application") version "8.8.0"
     alias(libs.plugins.kotlin.android)
     id("com.google.gms.google-services")
 }

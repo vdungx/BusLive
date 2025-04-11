@@ -4,9 +4,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import com.example.buslive.Model.Ticket
+import com.example.buslive.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
-import com.example.buslive.R
 
 class ThanhToanActivity : AppCompatActivity() {
 
@@ -14,64 +15,87 @@ class ThanhToanActivity : AppCompatActivity() {
     private lateinit var databaseKhachHang: DatabaseReference
     private lateinit var databaseVeXe: DatabaseReference
 
+    // View
+    private lateinit var txtTenTuyen: TextView
+    private lateinit var txtNgayGio: TextView
+    private lateinit var txtTenKhach: TextView
+    private lateinit var txtSdtKhach: TextView
+    private lateinit var txtEmailKhach: TextView
+    private lateinit var btnThanhToan: Button
+    private lateinit var paymentMethodGroup: RadioGroup
+    private lateinit var backButton: ImageView
+
+    // Dữ liệu nhận từ Intent
+    private var tenNhaXe = ""
+    private var gioDi = ""
+    private var ngayKhoiHanh = ""
+    private var viTri = ""
+    private var gia = 0
+    private var tang = 1
+    private var maChuyen = ""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_thanh_toan)
 
-        // Khởi tạo Firebase
+        initFirebase()
+        getIntentData()
+        setupViews()
+        loadUserInfo()
+        handleActions()
+    }
+
+    private fun initFirebase() {
         auth = FirebaseAuth.getInstance()
-        databaseKhachHang = FirebaseDatabase.getInstance().getReference("KhachHang")
-        databaseVeXe = FirebaseDatabase.getInstance().getReference("VeXe")
+        val dbRef = FirebaseDatabase.getInstance()
+        databaseKhachHang = dbRef.getReference("KhachHang")
+        databaseVeXe = dbRef.getReference("VeXe")
+    }
 
-        // Nhận dữ liệu từ Intent
-        val tenNhaXe = intent.getStringExtra("tenNhaXe") ?: ""
-        val gioDi = intent.getStringExtra("gioDi") ?: ""
-        val ngayKhoiHanh = intent.getStringExtra("ngayKhoiHanh") ?: ""
-        val viTri = intent.getStringExtra("viTri") ?: ""
-        val gia = intent.getIntExtra("gia", 0)
-        val tang = intent.getIntExtra("tang", 1)
-        val maChuyen = intent.getStringExtra("maChuyen") ?: ""
+    private fun getIntentData() {
+        intent?.apply {
+            tenNhaXe = getStringExtra("tenNhaXe") ?: ""
+            gioDi = getStringExtra("gioDi") ?: ""
+            ngayKhoiHanh = getStringExtra("ngayKhoiHanh") ?: ""
+            viTri = getStringExtra("viTri") ?: ""
+            gia = getIntExtra("gia", 0)
+            tang = getIntExtra("tang", 1)
+            maChuyen = getStringExtra("maChuyen") ?: ""
+        }
+    }
 
-        // Ánh xạ view
-        val txtTenTuyen = findViewById<TextView>(R.id.txtTenTuyen)
-        val txtNgayGio = findViewById<TextView>(R.id.txtNgayGio)
-        val txtTenKhach = findViewById<TextView>(R.id.txtTenKhach)
-        val txtSdtKhach = findViewById<TextView>(R.id.txtSdtKhach)
-        val txtEmailKhach = findViewById<TextView>(R.id.txtEmailKhach)
-        val btnThanhToan = findViewById<Button>(R.id.btnThanhToan)
-        val paymentMethodGroup = findViewById<RadioGroup>(R.id.paymentMethodGroup)
-        val backButton = findViewById<ImageView>(R.id.backButton)
+    private fun setupViews() {
+        txtTenTuyen = findViewById(R.id.txtTenTuyen)
+        txtNgayGio = findViewById(R.id.txtNgayGio)
+        txtTenKhach = findViewById(R.id.txtTenKhach)
+        txtSdtKhach = findViewById(R.id.txtSdtKhach)
+        txtEmailKhach = findViewById(R.id.txtEmailKhach)
+        btnThanhToan = findViewById(R.id.btnThanhToan)
+        paymentMethodGroup = findViewById(R.id.paymentMethodGroup)
+        backButton = findViewById(R.id.backButton)
 
-        // Gán thông tin chuyến đi
         txtTenTuyen.text = "Nhà xe: $tenNhaXe - Mã chuyến: $maChuyen"
         txtNgayGio.text = "Khởi hành: $ngayKhoiHanh lúc $gioDi"
+    }
 
-        // Gán thông tin khách hàng
-        val uid = auth.currentUser?.uid
-        if (uid != null) {
-            databaseKhachHang.child(uid).addListenerForSingleValueEvent(object : ValueEventListener {
-                override fun onDataChange(snapshot: DataSnapshot) {
-                    val ten = snapshot.child("tenKhachHang").getValue(String::class.java) ?: ""
-                    val sdt = snapshot.child("soDienThoai").getValue(String::class.java) ?: ""
-                    val email = snapshot.child("email").getValue(String::class.java) ?: ""
+    private fun loadUserInfo() {
+        val uid = auth.currentUser?.uid ?: return
+        databaseKhachHang.child(uid).addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                txtTenKhach.text = "Tên: ${snapshot.child("tenKhachHang").getValue(String::class.java) ?: ""}"
+                txtSdtKhach.text = "SĐT: ${snapshot.child("soDienThoai").getValue(String::class.java) ?: ""}"
+                txtEmailKhach.text = "Email: ${snapshot.child("email").getValue(String::class.java) ?: ""}"
+            }
 
-                    txtTenKhach.text = "Tên: $ten"
-                    txtSdtKhach.text = "SĐT: $sdt"
-                    txtEmailKhach.text = "Email: $email"
-                }
+            override fun onCancelled(error: DatabaseError) {
+                Toast.makeText(this@ThanhToanActivity, "Lỗi tải thông tin khách hàng", Toast.LENGTH_SHORT).show()
+            }
+        })
+    }
 
-                override fun onCancelled(error: DatabaseError) {
-                    Toast.makeText(this@ThanhToanActivity, "Lỗi tải thông tin khách hàng", Toast.LENGTH_SHORT).show()
-                }
-            })
-        }
+    private fun handleActions() {
+        backButton.setOnClickListener { finish() }
 
-        // Xử lý quay lại
-        backButton.setOnClickListener {
-            finish()
-        }
-
-        // Xử lý thanh toán
         btnThanhToan.setOnClickListener {
             val selectedId = paymentMethodGroup.checkedRadioButtonId
             if (selectedId == -1) {
@@ -79,30 +103,44 @@ class ThanhToanActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            val phuongThuc = findViewById<RadioButton>(selectedId).text.toString()
+            val paymentMethod = findViewById<RadioButton>(selectedId).text.toString()
+            val uid = auth.currentUser?.uid
 
             if (uid != null) {
-                val veID = databaseVeXe.child(uid).push().key ?: return@setOnClickListener
-                val ve = hashMapOf(
-                    "maChuyen" to maChuyen,
-                    "tenNhaXe" to tenNhaXe,
-                    "ngayKhoiHanh" to ngayKhoiHanh,
-                    "gioDi" to gioDi,
-                    "viTri" to viTri,
-                    "gia" to gia,
-                    "tang" to tang,
-                    "phuongThuc" to phuongThuc
+                val ticketId = databaseVeXe.child(uid).push().key ?: return@setOnClickListener
+
+                val route = "Mã chuyến: $maChuyen - $tenNhaXe"
+                val company = tenNhaXe
+                val type = "Tầng $tang - Ghế $viTri"
+                val time = "$ngayKhoiHanh lúc $gioDi"
+                val bookingTime = paymentMethod
+
+                val ticket = Ticket(
+                    route = route,
+                    company = company,
+                    type = type,
+                    time = time,
+                    bookingTime = bookingTime
                 )
 
-                databaseVeXe.child(uid).child(veID).setValue(ve).addOnSuccessListener {
-                    Toast.makeText(this, "Đặt vé thành công với $phuongThuc", Toast.LENGTH_SHORT).show()
-                    // Chuyển sang màn hình xác nhận (tuỳ chọn)
-                    // startActivity(Intent(this, XacNhanActivity::class.java))
-                    finish()
-                }.addOnFailureListener {
-                    Toast.makeText(this, "Lỗi khi lưu vé", Toast.LENGTH_SHORT).show()
-                }
+                databaseVeXe.child(uid).child(ticketId).setValue(ticket)
+                    .addOnSuccessListener {
+                        Toast.makeText(this, "Đặt vé thành công với $paymentMethod", Toast.LENGTH_SHORT).show()
+
+                        // Quay về màn hình chính
+                        val intent = Intent(this, MainActivity::class.java)
+                        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                        intent.putExtra("paymentSuccess", true) // nếu bạn muốn hiển thị thông báo ở MainActivity
+                        startActivity(intent)
+                        finish()
+                    }
+                    .addOnFailureListener {
+                        Toast.makeText(this, "Lỗi khi lưu vé", Toast.LENGTH_SHORT).show()
+                    }
+            } else {
+                Toast.makeText(this, "Không tìm thấy người dùng", Toast.LENGTH_SHORT).show()
             }
         }
+
     }
 }
