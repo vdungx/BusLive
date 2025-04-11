@@ -95,7 +95,7 @@ class FragmentAccount : Fragment() {
         val tvTitleGopY = itemGopY.findViewById<TextView>(R.id.title)
         val ivIconGopY = itemGopY.findViewById<ImageView>(R.id.icon)
         tvTitleGopY.text = "Góp Ý"
-        ivIconGopY.setImageResource(R.drawable.ic_support1) // thay bằng icon bạn muốn
+        ivIconGopY.setImageResource(R.drawable.ic_mail) // thay bằng icon bạn muốn
         itemGopY.setOnClickListener {
             val intent = Intent(requireContext(), GopyActivity::class.java)
             startActivity(intent)
@@ -107,7 +107,7 @@ class FragmentAccount : Fragment() {
             "customer" -> "Thành viên"
             "bus_owner" -> "Nhà xe"
             "admin" -> "Quản trị viên"
-            else -> "Người dùng"
+            else -> ""
         }
     }
 }

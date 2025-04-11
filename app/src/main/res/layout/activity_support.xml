@@ -13,7 +13,7 @@
         android:layout_marginStart="0dp"
         android:layout_marginTop="0dp"
         android:layout_marginEnd="0dp"
-        android:background="#65558F"
+        android:background="#03A9F4"
         android:orientation="vertical">
 
         <LinearLayout
@@ -29,7 +29,8 @@
                 android:layout_height="52dp"
                 android:layout_marginEnd="15dp"
                 android:scaleType="fitXY"
-                android:src="@drawable/back" />
+                android:src="@drawable/back"
+                app:tint="@color/white" />
 
             <TextView
                 android:id="@+id/r28cudz6uh7l"
@@ -68,6 +69,7 @@
 
         <!-- Mỗi câu hỏi -->
         <TextView
+            android:id="@+id/textViewQuestion1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Làm thế nào để đặt vé?"
@@ -76,6 +78,7 @@
             android:drawablePadding="12dp"/>
 
         <TextView
+            android:id="@+id/textViewQuestion2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Tôi có thể thay đổi hoặc huỷ vé đã đặt không?"
@@ -84,6 +87,7 @@
             android:drawablePadding="12dp"/>
 
         <TextView
+            android:id="@+id/textViewQuestion3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Làm thế nào để thanh toán?"
@@ -92,6 +96,7 @@
             android:drawablePadding="12dp"/>
 
         <TextView
+            android:id="@+id/textViewQuestion4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Tôi có thể xem thông tin chuyến đi ở đâu?"

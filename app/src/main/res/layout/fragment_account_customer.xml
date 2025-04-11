@@ -30,7 +30,7 @@
                 android:layout_height="wrap_content"
                 android:text="Name"
                 android:textColor="#FFFFFF"
-                android:textSize="16sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -39,7 +39,8 @@
                 android:layout_height="wrap_content"
                 android:text="Role"
                 android:textColor="#FFFFFF"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                android:paddingTop="5dp"/>
         </LinearLayout>
 
         <TextView
@@ -70,9 +71,6 @@
             <!-- Repeat for each item -->
             <include layout="@layout/item_account_option"
                 android:id="@+id/itemFeedback" />
-
-            <include layout="@layout/item_account_option"
-                android:id="@+id/itemSettings" />
 
             <include layout="@layout/item_account_option"
                 android:id="@+id/itemSupportCenter" />

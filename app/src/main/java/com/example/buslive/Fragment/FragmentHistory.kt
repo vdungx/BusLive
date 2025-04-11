@@ -1,33 +1,40 @@
 package com.example.buslive.Fragment
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.TextView
-import com.example.buslive.Activity.HistoryActivity
+import android.widget.ImageView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.buslive.R
+import com.example.buslive.Respository.TicketRepository
+import com.example.buslive.adapter.TicketAdapter
+import com.google.firebase.auth.FirebaseAuth
+
 
 class FragmentHistory : Fragment() {
-    private lateinit var textViewDetails: TextView
-
+    private lateinit var recyclerView: RecyclerView
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_history, container, false)
-
-        // Giả sử bạn có một nút để khởi động HistoryActivity
-        val buttonDetail = view.findViewById<Button>(R.id.detailButton1) // Thay ID bằng ID thực tế của nút
-        buttonDetail.setOnClickListener {
-            val intent = Intent(requireContext(), HistoryActivity::class.java)
-            intent.putExtra("MA_VE", "1") // Thay "1" bằng mã vé thực tế
-            startActivity(intent)
-        }
-
         return view
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        recyclerView = view.findViewById(R.id.recyclerView)
+        val userId = FirebaseAuth.getInstance().currentUser?.uid ?: return
+
+        TicketRepository.loadUserTickets(userId) { ticketList ->
+            val adapter = TicketAdapter(ticketList,requireContext())
+            recyclerView.adapter = adapter
+            recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        }
+    }
+
+
 }

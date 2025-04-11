@@ -43,6 +43,9 @@
             android:name=".Activity.SignUpActivity"
             android:exported="false" />
         <activity
+            android:name=".Activity.ThanhToanActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activity.MainActivity"
             android:exported="false"></activity>
     </application>

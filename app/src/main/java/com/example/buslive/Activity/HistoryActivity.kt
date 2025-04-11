@@ -1,6 +1,7 @@
 package com.example.buslive.Activity
 
 import android.os.Bundle
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.buslive.R
@@ -21,10 +22,6 @@ class HistoryActivity : AppCompatActivity() {
     private lateinit var textViewGiaVe: TextView
     private lateinit var textViewTrangThai: TextView
     private lateinit var textViewTenNhaXeLienHe: TextView
-    private lateinit var textViewSDTLienHe: TextView
-    private lateinit var textViewDiaChiDi: TextView
-    private lateinit var textViewDiaChiDen: TextView
-    private lateinit var textViewDiaChiDonKhac: TextView
     private lateinit var databaseReference: DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,10 +39,6 @@ class HistoryActivity : AppCompatActivity() {
         textViewGiaVe = findViewById(R.id.textViewGiaVe)
         textViewTrangThai = findViewById(R.id.textViewTrangThai)
         textViewTenNhaXeLienHe = findViewById(R.id.textViewTenNhaXeLienHe)
-        textViewSDTLienHe = findViewById(R.id.textViewSDTLienHe)
-        textViewDiaChiDi = findViewById(R.id.textViewDiaChiDi)
-        textViewDiaChiDen = findViewById(R.id.textViewDiaChiDen)
-        textViewDiaChiDonKhac = findViewById(R.id.textViewDiaChiDonKhac)
 
         // Nhận dữ liệu từ Intent
         val maVe = intent.getStringExtra("MA_VE")
@@ -58,32 +51,32 @@ class HistoryActivity : AppCompatActivity() {
             databaseReference.child("VeXe").child(it).addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(dataSnapshot: DataSnapshot) {
                     if (dataSnapshot.exists()) {
-                        val maCabin = dataSnapshot.child("MaCabin").getValue(String::class.java)
-                        val trangThai = dataSnapshot.child("TrangThai").getValue(String::class.java)
+                        val maCabin = dataSnapshot.child("maCabin").getValue(String::class.java)
+                        val thoiGianDatVe = dataSnapshot.child("thoiGianDatVe").getValue(String::class.java)
+                        val trangThai = dataSnapshot.child("trangThai").getValue(String::class.java)
 
                         // Lấy thông tin từ Cabin
                         maCabin?.let { cabinId ->
                             databaseReference.child("Cabin").child(cabinId).addListenerForSingleValueEvent(object : ValueEventListener {
                                 override fun onDataChange(cabinSnapshot: DataSnapshot) {
                                     if (cabinSnapshot.exists()) {
-                                        val maChuyen = cabinSnapshot.child("MaChuyen").getValue(String::class.java)
+                                        val maChuyen = cabinSnapshot.child("maChuyen").getValue(String::class.java)
 
                                         // Lấy thông tin chuyến xe
                                         maChuyen?.let { tripId ->
-                                            databaseReference.child("ChuyenXe").child(tripId).addListenerForSingleValueEvent(object : ValueEventListener {
+                                            databaseReference.child("ChuyenXe").child("Chuyen$tripId").addListenerForSingleValueEvent(object : ValueEventListener {
                                                 override fun onDataChange(chuyenSnapshot: DataSnapshot) {
                                                     if (chuyenSnapshot.exists()) {
-                                                        textViewDiemDiDen.text = "${chuyenSnapshot.child("DiemDi").getValue(String::class.java)} - ${chuyenSnapshot.child("DiemDen").getValue(String::class.java)}"
-                                                        textViewNhaXe.text = chuyenSnapshot.child("TenXe").getValue(String::class.java) ?: "Không có thông tin"
-                                                        textViewThoiGianDatVe.text = intent.getStringExtra("THOI_GIAN_DAT_VE") ?: "Không có thông tin"
-                                                        textViewDiemDi.text = "Điểm đi: ${chuyenSnapshot.child("DiemDi").getValue(String::class.java) ?: "Không có thông tin"}"
-                                                        textViewDiemDen.text = "Điểm đến: ${chuyenSnapshot.child("DiemDen").getValue(String::class.java) ?: "Không có thông tin"}"
-                                                        textViewThoiGianKhoiHanh.text = "Thời gian khởi hành: ${chuyenSnapshot.child("GioDi").getValue(String::class.java) ?: "Không có thông tin"} - ${chuyenSnapshot.child("NgayKhoiHanh").getValue(String::class.java) ?: "Không có thông tin"}"
-                                                        textViewThoiGianDuKien.text = "Thời gian dự kiến: ${chuyenSnapshot.child("GioDen").getValue(String::class.java) ?: "Không có thông tin"}"
-                                                        textViewGiaVe.text = "Giá vé: ${cabinSnapshot.child("Gia").getValue(Long::class.java)?.toString() ?: "Không có thông tin"}"
+                                                        textViewDiemDiDen.text = "${chuyenSnapshot.child("diemDi").getValue(String::class.java)} - ${chuyenSnapshot.child("diemDen").getValue(String::class.java)}"
+                                                        textViewNhaXe.text = chuyenSnapshot.child("tenNhaXe").getValue(String::class.java) ?: "Không có thông tin"
+                                                        textViewThoiGianDatVe.text = "Thời gian đặt vé: $thoiGianDatVe" ?: "Không có thông tin"
+                                                        textViewDiemDi.text = "Điểm đi: ${chuyenSnapshot.child("diemDi").getValue(String::class.java) ?: "Không có thông tin"}"
+                                                        textViewDiemDen.text = "Điểm đến: ${chuyenSnapshot.child("diemDen").getValue(String::class.java) ?: "Không có thông tin"}"
+                                                        textViewThoiGianKhoiHanh.text = "Thời gian khởi hành: ${chuyenSnapshot.child("gioDi").getValue(String::class.java)} - ${chuyenSnapshot.child("ngayKhoiHanh").getValue(String::class.java) ?: "Không có thông tin"}"
+                                                        textViewThoiGianDuKien.text = "Thời gian dự kiến: ${chuyenSnapshot.child("gioDen").getValue(String::class.java) ?: "Không có thông tin"}"
+                                                        textViewGiaVe.text = "Giá vé: ${cabinSnapshot.child("gia").getValue(Long::class.java)?.toString() ?: "Không có thông tin"}"
                                                         textViewTrangThai.text = "Trạng thái: $trangThai"
-                                                        textViewTenNhaXeLienHe.text = "Nhà xe: ${chuyenSnapshot.child("TenXe").getValue(String::class.java) ?: "Không có thông tin"}"
-                                                        // Cập nhật thêm thông tin địa chỉ nếu cần
+                                                        textViewTenNhaXeLienHe.text = "Nhà xe: ${chuyenSnapshot.child("tenNhaXe").getValue(String::class.java) ?: "Không có thông tin"}"
                                                     }
                                                 }
 
@@ -108,5 +101,11 @@ class HistoryActivity : AppCompatActivity() {
                 }
             })
         }
+
+        val btnBack = findViewById<ImageView>(R.id.btn_backve)
+        btnBack.setOnClickListener {
+            finish() // Quay lại
+        }
+
     }
 }
