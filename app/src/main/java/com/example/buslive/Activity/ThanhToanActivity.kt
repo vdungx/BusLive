@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.example.buslive.Model.Ticket
+import com.example.buslive.Model.VeDaDatModel
 import com.example.buslive.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
@@ -112,25 +113,25 @@ class ThanhToanActivity : AppCompatActivity() {
                 val route = "Mã chuyến: $maChuyen - $tenNhaXe"
                 val company = tenNhaXe
                 val type = "Tầng $tang - Ghế $viTri"
-                val time = "$ngayKhoiHanh lúc $gioDi"
+                val time = "$gioDi - $ngayKhoiHanh"  // đúng format yêu cầu
                 val bookingTime = paymentMethod
 
-                val ticket = Ticket(
+                val veDaDat = VeDaDatModel(
                     route = route,
                     company = company,
                     type = type,
                     time = time,
-                    bookingTime = bookingTime
+                    bookingTime = bookingTime,
+                    maVe = ticketId
                 )
 
-                databaseVeXe.child(uid).child(ticketId).setValue(ticket)
+                databaseVeXe.child(uid).child(ticketId).setValue(veDaDat)
                     .addOnSuccessListener {
                         Toast.makeText(this, "Đặt vé thành công với $paymentMethod", Toast.LENGTH_SHORT).show()
-
-                        // Quay về màn hình chính
-                        val intent = Intent(this, MainActivity::class.java)
-                        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                        intent.putExtra("paymentSuccess", true) // nếu bạn muốn hiển thị thông báo ở MainActivity
+                        val intent = Intent(this, MainActivity::class.java).apply {
+                            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                            putExtra("paymentSuccess", true)
+                        }
                         startActivity(intent)
                         finish()
                     }
@@ -141,6 +142,7 @@ class ThanhToanActivity : AppCompatActivity() {
                 Toast.makeText(this, "Không tìm thấy người dùng", Toast.LENGTH_SHORT).show()
             }
         }
+
 
     }
 }
