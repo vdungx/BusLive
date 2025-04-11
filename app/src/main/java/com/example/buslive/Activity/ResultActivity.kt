@@ -1,81 +1,106 @@
 package com.example.buslive.Activity
 
+import android.content.Intent
 import android.os.Bundle
-import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.buslive.Fragment.FragmentAccount
+import com.example.buslive.Fragment.FragmentHistory
+import com.example.buslive.Fragment.FragmentHome
+import com.example.buslive.Model.ChuyenXe
 import com.example.buslive.R
+import com.example.buslive.adapter.ChuyenXeAdapter
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import java.text.SimpleDateFormat
-import java.util.Locale
+import com.google.firebase.database.*
 
 class ResultActivity : AppCompatActivity() {
 
-    private lateinit var tvDiemDi: TextView
-    private lateinit var tvDiemDen: TextView
-    private lateinit var tvDate: TextView
     private lateinit var recyclerView: RecyclerView
-    private lateinit var bottomNavigationView: BottomNavigationView
+    private lateinit var chuyenXeAdapter: ChuyenXeAdapter
+    private val chuyenXeList = ArrayList<ChuyenXe>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_result)
+        val bottomNav = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
 
-        // Ánh xạ view
-        tvDiemDi = findViewById(R.id.tvdiemdi)
-        tvDiemDen = findViewById(R.id.tvdiemden)
-        tvDate = findViewById(R.id.tvDate)
+        bottomNav.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.navigation_home -> {
+                    loadFragment(FragmentHome())
+                    true
+                }
+                R.id.navigation_filter -> {
+                    val intent = Intent(this, ResultActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+                R.id.navigation_history -> {
+                    loadFragment(FragmentHistory())
+                    true
+                }
+                R.id.navigation_account -> {
+                    loadFragment(FragmentAccount())
+                    true
+                }
+                else -> false
+            }
+        }
+
         recyclerView = findViewById(R.id.recyclerView)
-        bottomNavigationView = findViewById(R.id.bottomNavigationView)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.setHasFixedSize(true)
 
-        // Nhận dữ liệu từ HomeActivity
-        val departure = intent.getStringExtra("departure") ?: ""
-        val destination = intent.getStringExtra("destination") ?: ""
-        val date = intent.getStringExtra("date") ?: ""
+        chuyenXeAdapter = ChuyenXeAdapter { chuyenXe ->
+            val intent = Intent(this, ChonChoActivity::class.java)
+            intent.putExtra("maChuyen", chuyenXe.idChuyen)
+            startActivity(intent)
+        }
+        recyclerView.adapter = chuyenXeAdapter
 
-        // Gán dữ liệu lên giao diện
-        tvDiemDi.text = departure
-        tvDiemDen.text = destination
-        tvDate.text = formatDate(date)
+        // Đọc dữ liệu từ Firebase
+        val dbRef = FirebaseDatabase.getInstance().getReference("ChuyenXe")
+        dbRef.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val currentList = ArrayList<ChuyenXe>()
+                val currentDate = getCurrentDate() // ví dụ: "2025-04-11"
 
-        // Hiển thị mục đang chọn là "Lọc"
-        bottomNavigationView.selectedItemId = R.id.navigation_filter
+                for (data in snapshot.children) {
+                    val chuyen = data.getValue(ChuyenXe::class.java)
+                    val ngayKhoiHanh = chuyen?.ngayKhoiHanh
+                    if (chuyen != null && ngayKhoiHanh != null && ngayKhoiHanh >= currentDate) {
+                        currentList.add(chuyen)
+                    }
+                }
 
-        //        bottomNavigationView.setOnItemSelectedListener { item: MenuItem ->
-        //            when (item.itemId) {
-        //                R.id.navigation_home -> {
-        //                    // TODO: Chuyển về HomeActivity nếu muốn
-        //                    true
-        //                }
-        //                R.id.navigation_location -> {
-        //                    // Đang ở ResultActivity
-        //                    true
-        //                }
-        //                R.id.navigation_history -> {
-        //                    // TODO: Mở lịch sử
-        //                    true
-        //                }
-        //                R.id.navigation_account -> {
-        //                    // TODO: Mở trang tài khoản
-        //                    true
-        //                }
-        //                else -> false
-        //            }
-        //        }
+                if (currentList.isEmpty()) {
+                    Toast.makeText(
+                        this@ResultActivity,
+                        "Không có chuyến xe nào sắp tới",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
 
-        // TODO: Thiết lập RecyclerView hiển thị chuyến xe tại đây nếu có dữ liệu thật
-        // loadTripResults(departure, destination, date)
+                chuyenXeAdapter.submitList(currentList)
+            }
+
+
+            override fun onCancelled(error: DatabaseError) {
+                Toast.makeText(this@ResultActivity, "Lỗi: ${error.message}", Toast.LENGTH_SHORT).show()
+            }
+        })
+    }
+    private fun getCurrentDate(): String {
+        val sdf = java.text.SimpleDateFormat("yyyy-MM-dd", java.util.Locale.getDefault())
+        return sdf.format(java.util.Date())
     }
 
-    private fun formatDate(dateStr: String?): String {
-        if (dateStr.isNullOrEmpty()) return ""
-        return try {
-            val inputFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
-            val outputFormat = SimpleDateFormat("EEE, dd/MM/yyyy", Locale("vi"))
-            val date = inputFormat.parse(dateStr)
-            outputFormat.format(date!!)
-        } catch (e: Exception) {
-            dateStr
-        }
+    private fun loadFragment(fragment: Fragment) {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, fragment)
+            .commit()
     }
 }

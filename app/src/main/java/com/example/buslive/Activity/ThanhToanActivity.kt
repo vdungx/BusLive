@@ -49,7 +49,7 @@ class ThanhToanActivity : AppCompatActivity() {
     private fun initFirebase() {
         auth = FirebaseAuth.getInstance()
         val dbRef = FirebaseDatabase.getInstance()
-        databaseKhachHang = dbRef.getReference("KhachHang")
+        databaseKhachHang = dbRef.getReference("users")
         databaseVeXe = dbRef.getReference("VeXe")
     }
 
@@ -83,8 +83,8 @@ class ThanhToanActivity : AppCompatActivity() {
         val uid = auth.currentUser?.uid ?: return
         databaseKhachHang.child(uid).addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                txtTenKhach.text = "Tên: ${snapshot.child("tenKhachHang").getValue(String::class.java) ?: ""}"
-                txtSdtKhach.text = "SĐT: ${snapshot.child("soDienThoai").getValue(String::class.java) ?: ""}"
+                txtTenKhach.text = "Tên: ${snapshot.child("fullName").getValue(String::class.java) ?: ""}"
+                txtSdtKhach.text = "SĐT: ${snapshot.child("phone").getValue(String::class.java) ?: ""}"
                 txtEmailKhach.text = "Email: ${snapshot.child("email").getValue(String::class.java) ?: ""}"
             }
 

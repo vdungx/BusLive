@@ -1,5 +1,6 @@
 package com.example.buslive.Activity
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -35,7 +36,8 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.navigation_filter -> {
-                    loadFragment(FragmentFilter())
+                    val intent = Intent(this, ResultActivity::class.java)
+                    startActivity(intent)
                     true
                 }
                 R.id.navigation_history -> {
