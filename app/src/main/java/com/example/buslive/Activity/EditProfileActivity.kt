@@ -3,6 +3,7 @@ package com.example.buslive.Activity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.buslive.R
@@ -15,6 +16,7 @@ class EditProfileActivity : AppCompatActivity() {
     private lateinit var edtUsername: EditText
     private lateinit var edtPhone: EditText
     private lateinit var btnSave: Button
+    private lateinit var btnBack: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,6 +26,10 @@ class EditProfileActivity : AppCompatActivity() {
         edtUsername = findViewById(R.id.edtUsername)
         edtPhone = findViewById(R.id.edtPhone)
         btnSave = findViewById(R.id.btnSave)
+        btnBack = findViewById(R.id.btn_back)
+
+        btnBack.setOnClickListener { finish() }
+
 
         val uid = FirebaseAuth.getInstance().currentUser?.uid
 

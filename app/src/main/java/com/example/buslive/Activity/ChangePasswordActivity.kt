@@ -3,6 +3,7 @@ package com.example.buslive.Activity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.buslive.R
@@ -15,6 +16,7 @@ class ChangePasswordActivity : AppCompatActivity() {
     private lateinit var edtNewPassword: EditText
     private lateinit var edtConfirmPassword: EditText
     private lateinit var btnChangePassword: Button
+    private lateinit var btnBack: ImageView
 
     private val auth = FirebaseAuth.getInstance()
 
@@ -26,6 +28,10 @@ class ChangePasswordActivity : AppCompatActivity() {
         edtNewPassword = findViewById(R.id.edtNewPassword)
         edtConfirmPassword = findViewById(R.id.edtConfirmPassword)
         btnChangePassword = findViewById(R.id.btnChangePassword)
+        btnBack = findViewById(R.id.btn_back)
+
+        btnBack.setOnClickListener { finish() }
+
 
         btnChangePassword.setOnClickListener {
             changePassword()
