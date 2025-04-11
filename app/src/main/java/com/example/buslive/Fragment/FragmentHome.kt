@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.example.buslive.R
 import com.example.buslive.viewmodel.SearchViewModel
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import java.util.Calendar
 
 class FragmentHome : Fragment() {
@@ -57,10 +58,9 @@ class FragmentHome : Fragment() {
                 Toast.makeText(requireContext(), "Vui lòng nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show()
             } else {
                 searchViewModel.setSearchQuery(from, to, date)
-                parentFragmentManager.beginTransaction()
-                    .replace(R.id.fragment_container, FragmentFilter())
-                    .addToBackStack(null)
-                    .commit()
+
+                val bottomNav = requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+                bottomNav.selectedItemId = R.id.navigation_filter
             }
         }
 

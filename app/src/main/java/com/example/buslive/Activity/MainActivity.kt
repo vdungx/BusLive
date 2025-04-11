@@ -28,7 +28,6 @@ class MainActivity : AppCompatActivity() {
                 .commit()
         }
 
-
         bottomNav.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.navigation_home -> {
@@ -36,8 +35,7 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.navigation_filter -> {
-                    val intent = Intent(this, ResultActivity::class.java)
-                    startActivity(intent)
+                    loadFragment(FragmentFilter())
                     true
                 }
                 R.id.navigation_history -> {

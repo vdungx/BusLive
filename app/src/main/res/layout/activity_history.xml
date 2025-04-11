@@ -52,7 +52,7 @@
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/xk" />
+            android:src="@drawable/xk1" />
 
         <TextView
             android:id="@+id/textViewDiemDiDen"
@@ -90,6 +90,13 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             tools:text="Điểm đến: Bến xe Đà Nẵng" />
+
+        <TextView
+            android:id="@+id/textViewChoNgoi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Chỗ ngồi: "
+            android:layout_marginTop="8dp" />
 
         <TextView
             android:id="@+id/textViewThoiGianKhoiHanh"
@@ -142,43 +149,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             tools:text="Nhà xe Tân Kim Chi" />
-
-        <TextView
-            android:id="@+id/textViewSDTLienHe"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            tools:text="SĐT: 099932122" />
-
-        <TextView
-            android:id="@+id/textViewDiaChiTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Địa chỉ:"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/textViewDiaChiDi"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            tools:text="• Tại Đà Nẵng: - 58 Thanh Tịnh, Quận Liên Chiểu, TP Đà Nẵng" />
-
-        <TextView
-            android:id="@+id/textViewDiaChiDen"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            tools:text="• Quay 22A Bến Xe Đà Nẵng: 75 Thanh Tịnh, Liên Chiểu, TP Đà Nẵng" />
-
-        <TextView
-            android:id="@+id/textViewDiaChiDonKhac"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            tools:text="• Tại Hà Nội: - Bến xe Nước Ngầm: Số 1 Ngọc Hồi, Hoàng Liệt, Hoàng Mai" />
 
     </LinearLayout>
 </LinearLayout>

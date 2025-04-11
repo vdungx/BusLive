@@ -18,7 +18,6 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
             <LinearLayout
-                android:id="@+id/rmm9hg6d0oia"
                 android:layout_width="match_parent"
                 android:layout_height="92dp"
                 android:layout_marginStart="0dp"
@@ -28,7 +27,6 @@
                 android:orientation="vertical">
 
                 <LinearLayout
-                    android:id="@+id/rq5sw1rbw88h"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="33dp"
@@ -42,10 +40,9 @@
                         android:layout_marginEnd="15dp"
                         android:scaleType="fitXY"
                         android:src="@drawable/back"
-                        android:tint="@color/white"/>
+                        app:tint="@color/white" />
 
                     <TextView
-                        android:id="@+id/r28cudz6uh7l"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginVertical="18dp"
@@ -63,7 +60,6 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:id="@+id/r6qz6ef1838f"
                     android:layout_width="match_parent"
                     android:layout_height="250dp"
                     android:scaleType="fitXY"

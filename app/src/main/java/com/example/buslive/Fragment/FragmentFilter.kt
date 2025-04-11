@@ -49,6 +49,7 @@ class FragmentFilter : Fragment() {
             startActivity(intent)
         }
 
+
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
@@ -102,23 +103,67 @@ class FragmentFilter : Fragment() {
                 searchViewModel.setSearchQuery(from, to, date)
                 changeSearchContainer.visibility = View.GONE
             } else {
-                Toast.makeText(requireContext(), "Vui lòng nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show()
+                fetchAllChuyenXe()
+                changeSearchContainer.visibility = View.GONE
             }
+
         }
 
         val tvFrom = view.findViewById<TextView>(R.id.tvdiemdi)
         val tvTo = view.findViewById<TextView>(R.id.tvdiemden)
         val tvDate = view.findViewById<TextView>(R.id.tvDate)
 
-        searchViewModel.searchQuery.observe(viewLifecycleOwner) { (from, to, date) ->
-            tvFrom.text = from
-            tvTo.text = to
-            tvDate.text = date
-            val formattedDate = convertDateFormat(date)
-            fetchTuyenAndChuyenXe(from, to, formattedDate)
+        searchViewModel.searchQuery.observe(viewLifecycleOwner) { query ->
+            query?.let { (from, to, date) ->
+                tvFrom.text = from
+                tvTo.text = to
+                tvDate.text = date
+                val formattedDate = convertDateFormat(date)
+                fetchTuyenAndChuyenXe(from, to, formattedDate)
+            }
         }
 
+        if (searchViewModel.searchQuery.value == null) {
+            fetchAllChuyenXe()
+        }
         return view
+    }
+
+    private fun fetchAllChuyenXe() {
+        chuyenRef.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val chuyenList = mutableListOf<ChuyenXe>()
+
+                for (chuyenSnap in snapshot.children) {
+                    val chuyen = chuyenSnap.getValue(ChuyenXe::class.java)
+                    val idTuyen = chuyenSnap.child("idTuyen").getValue(String::class.java)
+
+                    if (chuyen != null && idTuyen != null) {
+                        // Lấy thêm điểm đi, điểm đến từ tuyến đường
+                        tuyenRef.child(idTuyen).addListenerForSingleValueEvent(object : ValueEventListener {
+                            override fun onDataChange(tuyenSnapshot: DataSnapshot) {
+                                chuyen.diemDi = tuyenSnapshot.child("diemDi").getValue(String::class.java)
+                                chuyen.diemDen = tuyenSnapshot.child("diemDen").getValue(String::class.java)
+                                chuyenList.add(chuyen)
+
+                                // Chỉ submit danh sách sau khi xử lý hết
+                                if (chuyenList.size == snapshot.childrenCount.toInt()) {
+                                    adapter.submitList(chuyenList)
+                                }
+                            }
+
+                            override fun onCancelled(error: DatabaseError) {
+                                // Bỏ qua nếu có lỗi khi lấy tuyến
+                            }
+                        })
+                    }
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Toast.makeText(requireContext(), "Lỗi tải danh sách chuyến xe", Toast.LENGTH_SHORT).show()
+            }
+        })
     }
 
     private fun fetchTuyenAndChuyenXe(from: String, to: String, date: String) {

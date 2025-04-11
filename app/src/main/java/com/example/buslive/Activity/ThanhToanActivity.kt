@@ -4,8 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import com.example.buslive.Model.Ticket
-import com.example.buslive.Model.VeDaDatModel
+import com.example.buslive.Model.Cabin
 import com.example.buslive.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
@@ -108,41 +107,64 @@ class ThanhToanActivity : AppCompatActivity() {
             val uid = auth.currentUser?.uid
 
             if (uid != null) {
-                val ticketId = databaseVeXe.child(uid).push().key ?: return@setOnClickListener
+                val ticketId = databaseVeXe.push().key ?: return@setOnClickListener
 
-                val route = "Mã chuyến: $maChuyen - $tenNhaXe"
-                val company = tenNhaXe
-                val type = "Tầng $tang - Ghế $viTri"
-                val time = "$gioDi - $ngayKhoiHanh"  // đúng format yêu cầu
-                val bookingTime = paymentMethod
+                // Lấy dữ liệu từ intent
+                val currentTime = java.text.SimpleDateFormat("HH:mm:ss dd/MM/yyyy", java.util.Locale.getDefault()).format(java.util.Date())
+                val maChuyen = intent.getStringExtra("maChuyen") ?: return@setOnClickListener
+                val tenNhaXe = intent.getStringExtra("tenNhaXe") ?: ""
+                val gioDi = intent.getStringExtra("gioDi") ?: ""
+                val ngayKhoiHanh = intent.getStringExtra("ngayKhoiHanh") ?: ""
+                val viTri = intent.getStringExtra("viTri") ?: ""
+                val tang = intent.getIntExtra("tang", 1)
 
-                val veDaDat = VeDaDatModel(
-                    route = route,
-                    company = company,
-                    type = type,
-                    time = time,
-                    bookingTime = bookingTime,
-                    maVe = ticketId
-                )
+                // Truy vấn Firebase để lấy đúng maCabin
+                val cabinRef = FirebaseDatabase.getInstance().getReference("Cabin").child(maChuyen)
+                cabinRef.orderByChild("viTri").equalTo(viTri)
+                    .addListenerForSingleValueEvent(object : ValueEventListener {
+                        override fun onDataChange(snapshot: DataSnapshot) {
+                            for (child in snapshot.children) {
+                                val cabin = child.getValue(Cabin::class.java)
+                                if (cabin != null && cabin.tang == tang) {
+                                    val maCabin = child.key ?: continue
+                                    val ticketData = mapOf(
+                                        "maCabin" to maCabin,
+                                        "maKH" to uid,
+                                        "maChuyen" to maChuyen,
+                                        "maThanhToan" to paymentMethod,
+                                        "thoiGianDatVe" to currentTime,
+                                        "trangThai" to "Đã đặt"
+                                    )
 
-                databaseVeXe.child(uid).child(ticketId).setValue(veDaDat)
-                    .addOnSuccessListener {
-                        Toast.makeText(this, "Đặt vé thành công với $paymentMethod", Toast.LENGTH_SHORT).show()
-                        val intent = Intent(this, MainActivity::class.java).apply {
-                            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                            putExtra("paymentSuccess", true)
+                                    FirebaseDatabase.getInstance().getReference("VeXe").child(ticketId)
+                                        .setValue(ticketData)
+                                        .addOnSuccessListener {
+                                            Toast.makeText(this@ThanhToanActivity, "Đặt vé thành công với $paymentMethod", Toast.LENGTH_SHORT).show()
+                                            val intent = Intent(this@ThanhToanActivity, MainActivity::class.java).apply {
+                                                flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                                                putExtra("paymentSuccess", true)
+                                            }
+                                            startActivity(intent)
+                                            finish()
+                                        }
+                                        .addOnFailureListener {
+                                            Toast.makeText(this@ThanhToanActivity, "Lỗi khi lưu vé", Toast.LENGTH_SHORT).show()
+                                        }
+
+                                    return  // sau khi lưu xong thì không cần xử lý tiếp
+                                }
+                            }
+
+                            Toast.makeText(this@ThanhToanActivity, "Không tìm thấy cabin phù hợp", Toast.LENGTH_SHORT).show()
                         }
-                        startActivity(intent)
-                        finish()
-                    }
-                    .addOnFailureListener {
-                        Toast.makeText(this, "Lỗi khi lưu vé", Toast.LENGTH_SHORT).show()
-                    }
+
+                        override fun onCancelled(error: DatabaseError) {
+                            Toast.makeText(this@ThanhToanActivity, "Lỗi Firebase: ${error.message}", Toast.LENGTH_SHORT).show()
+                        }
+                    })
             } else {
                 Toast.makeText(this, "Không tìm thấy người dùng", Toast.LENGTH_SHORT).show()
             }
         }
-
-
     }
 }

@@ -58,9 +58,8 @@ class ChonChoActivity : AppCompatActivity() {
         upperFloorRecyclerView.layoutManager = GridLayoutManager(this, 2)
 
         // Lấy dữ liệu cabin từ Firebase
-        val database = FirebaseDatabase.getInstance().getReference("Cabin")
-        database.orderByChild("maChuyen").equalTo(maChuyen)
-            .addListenerForSingleValueEvent(object : ValueEventListener {
+        val database = FirebaseDatabase.getInstance().getReference("Cabin").child(maChuyen)
+        database.addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     val lowerCabins = mutableListOf<Cabin>()
                     val upperCabins = mutableListOf<Cabin>()

@@ -14,11 +14,9 @@
         android:background="#2DB8FF"
         android:padding="16dp">
 
-
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
             android:layout_marginStart="28dp"
@@ -42,17 +40,6 @@
                 android:textSize="14sp"
                 android:paddingTop="5dp"/>
         </LinearLayout>
-
-        <TextView
-            android:id="@+id/tvEdit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Chỉnh sửa"
-            android:textColor="#FFFFFF"
-            android:textStyle="bold"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentTop="true"
-            android:padding="8dp"/>
     </RelativeLayout>
 
     <!-- Content -->
@@ -68,7 +55,12 @@
             android:padding="8dp">
 
             <!-- Menu items -->
-            <!-- Repeat for each item -->
+            <include layout="@layout/item_account_option"
+                android:id="@+id/itemEditProfile" />
+
+            <include layout="@layout/item_account_option"
+                android:id="@+id/itemChangePassword" />
+
             <include layout="@layout/item_account_option"
                 android:id="@+id/itemFeedback" />
 
@@ -77,6 +69,7 @@
 
             <include layout="@layout/item_account_option"
                 android:id="@+id/itemLogout" />
+
         </LinearLayout>
     </ScrollView>
 

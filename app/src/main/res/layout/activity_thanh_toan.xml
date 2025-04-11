@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:id="@+id/main"
     android:layout_height="match_parent"
@@ -24,15 +25,16 @@
 
             <ImageView
                 android:id="@+id/backButton"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/back" />
+                android:layout_width="57dp"
+                android:layout_height="56dp"
+                android:src="@drawable/back"
+                app:tint="@color/white" />
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="269dp"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginStart="16dp">
+                android:layout_marginStart="16dp"
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/titleTextView"
@@ -50,31 +52,35 @@
                     android:text="19:20 , T5, 20/03/2025"
                     android:textColor="@android:color/white"
                     android:textSize="12sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:padding="8dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:text="⚪ Chọn chỗ"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:text="🔵 Thanh toán"
+                        android:textSize="12sp" />
+                </LinearLayout>
             </LinearLayout>
+
+
         </LinearLayout>
 
-        <!-- Steps Indicator -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center"
-            android:padding="8dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="⚪ Chọn chỗ"
-                android:textSize="12sp"
-                android:layout_marginEnd="8dp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="🔵 Thanh toán"
-                android:textSize="12sp"
-                android:layout_marginEnd="8dp" />
-        </LinearLayout>
     </LinearLayout>
 
     <!-- Nội dung -->

@@ -10,10 +10,9 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="0dp"
-        android:layout_height="?attr/actionBarSize"
+        android:layout_height="92dp"
         android:background="#03A9F4"
         android:theme="?attr/actionBarTheme"
-        app:navigationIcon="@drawable/back"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
@@ -43,7 +42,7 @@
                         android:id="@+id/tvdiemdi"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Hà Nội"
+                        android:text="Điểm đi"
                         android:textColor="@android:color/white"
                         android:textSize="18sp"
                         android:textStyle="bold" />
@@ -61,7 +60,7 @@
                         android:id="@+id/tvdiemden"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Đà Nẵng"
+                        android:text="Điểm đến"
                         android:textColor="@android:color/white"
                         android:textSize="18sp"
                         android:textStyle="bold" />
@@ -72,7 +71,7 @@
                     android:id="@+id/tvDate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="T5, 20/03/2025"
+                    android:text="Thời gian"
                     android:textColor="@android:color/white"
                     android:textSize="14sp"
                     android:layout_marginTop="2dp" />

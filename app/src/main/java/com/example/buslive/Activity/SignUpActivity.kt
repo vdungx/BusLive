@@ -4,11 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.InputType
 import android.util.Patterns
-import android.widget.Button
-import android.widget.CheckBox
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.example.buslive.Model.User
 import com.example.buslive.R
@@ -17,10 +13,11 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
 class SignUpActivity : AppCompatActivity() {
+
     private lateinit var auth: FirebaseAuth
     private lateinit var database: DatabaseReference
     private var isPasswordVisible = false
-    private var isPasswordVisible1 = false
+    private var isConfirmPasswordVisible = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,105 +26,101 @@ class SignUpActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
         database = FirebaseDatabase.getInstance().getReference("users")
 
-        val checkboxAgree = findViewById<CheckBox>(R.id.checksignup)
-        val btnSignUp: Button = findViewById(R.id.btn_signup)
+        val edtFullName = findViewById<EditText>(R.id.edt_fullname)
+        val edtUsername = findViewById<EditText>(R.id.edt_username)
+        val edtPhone = findViewById<EditText>(R.id.edt_phone)
+        val edtEmail = findViewById<EditText>(R.id.edt_email)
+        val edtPassword = findViewById<EditText>(R.id.edt_password)
+        val edtConfirmPassword = findViewById<EditText>(R.id.edt_confirmpassword)
+        val chkAgree = findViewById<CheckBox>(R.id.checksignup)
+        val btnSignUp = findViewById<Button>(R.id.btn_signup)
+        val imgTogglePassword = findViewById<ImageView>(R.id.img_showpassword)
+        val imgToggleConfirmPassword = findViewById<ImageView>(R.id.img_showpassword1)
+        val btnBack = findViewById<ImageView>(R.id.btn_back)
 
+        // Hiện/ẩn mật khẩu
+        imgTogglePassword.setOnClickListener {
+            isPasswordVisible = !isPasswordVisible
+            togglePasswordVisibility(edtPassword, imgTogglePassword, isPasswordVisible)
+        }
+
+        imgToggleConfirmPassword.setOnClickListener {
+            isConfirmPasswordVisible = !isConfirmPasswordVisible
+            togglePasswordVisibility(edtConfirmPassword, imgToggleConfirmPassword, isConfirmPasswordVisible)
+        }
+
+        // Xử lý nút đăng ký
         btnSignUp.setOnClickListener {
-            if (!checkboxAgree.isChecked) {
+            if (!chkAgree.isChecked) {
                 Toast.makeText(this, "Bạn phải chấp nhận điều khoản để tiếp tục", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
-            registerUser()
-        }
 
-        val imgToggle = findViewById<ImageView>(R.id.img_showpassword)
-        val imgToggle1 = findViewById<ImageView>(R.id.img_showpassword1)
-        val password = findViewById<EditText>(R.id.edt_password)
-        val confirmPassword = findViewById<EditText>(R.id.edt_confirmpassword)
-        imgToggle.setOnClickListener {
-            isPasswordVisible = !isPasswordVisible
-            if (isPasswordVisible) {
-                // Hiện mật khẩu
-                password.inputType = InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
-                imgToggle.setImageResource(R.drawable.eye)
-            } else {
-                // Ẩn mật khẩu
-                password.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
-                imgToggle.setImageResource(R.drawable.eye)
+            val fullName = edtFullName.text.toString().trim()
+            val username = edtUsername.text.toString().trim()
+            val phone = edtPhone.text.toString().trim()
+            val email = edtEmail.text.toString().trim()
+            val password = edtPassword.text.toString().trim()
+            val confirmPassword = edtConfirmPassword.text.toString().trim()
+
+            if (fullName.isEmpty() || username.isEmpty() || phone.isEmpty() ||
+                email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()
+            ) {
+                Toast.makeText(this, "Vui lòng điền đầy đủ thông tin", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
             }
-            // Giữ con trỏ ở cuối văn bản
-            password.setSelection(password.text.length)
-        }
 
-        imgToggle1.setOnClickListener {
-            isPasswordVisible1 = !isPasswordVisible1
-            if (isPasswordVisible1) {
-                // Hiện mật khẩu
-                confirmPassword.inputType = InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
-                imgToggle.setImageResource(R.drawable.eye)
-            } else {
-                // Ẩn mật khẩu
-                confirmPassword.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
-                imgToggle.setImageResource(R.drawable.eye)
+            if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                Toast.makeText(this, "Email không hợp lệ", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
             }
-            // Giữ con trỏ ở cuối văn bản
-            confirmPassword.setSelection(confirmPassword.text.length)
+
+            if (password.length < 6) {
+                Toast.makeText(this, "Mật khẩu phải có ít nhất 6 ký tự", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            if (password != confirmPassword) {
+                Toast.makeText(this, "Mật khẩu không trùng khớp", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            // Đăng ký tài khoản với Firebase
+            auth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        val userId = auth.currentUser?.uid ?: ""
+                        val user = User(userId, fullName, username, phone, email)
+
+                        database.child(userId).setValue(user)
+                            .addOnSuccessListener {
+                                Toast.makeText(this, "Đăng ký thành công", Toast.LENGTH_SHORT).show()
+                                startActivity(Intent(this, LoginActivity::class.java))
+                                finish()
+                            }
+                            .addOnFailureListener {
+                                Toast.makeText(this, "Lỗi lưu dữ liệu", Toast.LENGTH_SHORT).show()
+                            }
+                    } else {
+                        Toast.makeText(this, "Đăng ký thất bại: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
+                    }
+                }
         }
 
-        val tvbacktologin = findViewById<ImageView>(R.id.btn_back)
-        tvbacktologin.setOnClickListener {
-            // Chuyển sang màn hình đăng ký
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
+        // Quay lại trang đăng nhập
+        btnBack.setOnClickListener {
+            startActivity(Intent(this, LoginActivity::class.java))
         }
     }
 
-    private fun registerUser() {
-        val fullName = findViewById<EditText>(R.id.edt_fullname).text.toString().trim()
-        val username = findViewById<EditText>(R.id.edt_username).text.toString().trim()
-        val phone = findViewById<EditText>(R.id.edt_phone).text.toString().trim()
-        val email = findViewById<EditText>(R.id.edt_email).text.toString().trim()
-        val password = findViewById<EditText>(R.id.edt_password).text.toString().trim()
-        val confirmPassword = findViewById<EditText>(R.id.edt_confirmpassword).text.toString().trim()
-
-        if (fullName.isEmpty() || username.isEmpty() || phone.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
-            Toast.makeText(this, "Vui lòng điền đầy đủ thông tin", Toast.LENGTH_SHORT).show()
-            return
+    // Hàm toggle ẩn/hiện mật khẩu
+    private fun togglePasswordVisibility(editText: EditText, icon: ImageView, isVisible: Boolean) {
+        if (isVisible) {
+            editText.inputType = InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
+        } else {
+            editText.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
         }
-
-        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            Toast.makeText(this, "Email không hợp lệ", Toast.LENGTH_SHORT).show()
-            return
-        }
-
-        if (password.length < 6) {
-            Toast.makeText(this, "Mật khẩu phải có ít nhất 6 ký tự", Toast.LENGTH_SHORT).show()
-            return
-        }
-
-        if (password != confirmPassword) {
-            Toast.makeText(this, "Mật khẩu không trùng khớp", Toast.LENGTH_SHORT).show()
-            return
-        }
-
-        auth.createUserWithEmailAndPassword(email, password)
-            .addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    val userId = auth.currentUser?.uid ?: ""
-                    val user = User(userId, fullName, username, phone, email)
-
-                    database.child(userId).setValue(user)
-                        .addOnSuccessListener {
-                            Toast.makeText(this, "Đăng ký thành công", Toast.LENGTH_SHORT).show()
-                            startActivity(Intent(this, LoginActivity::class.java))
-                            finish()
-                        }
-                        .addOnFailureListener {
-                            Toast.makeText(this, "Lỗi lưu dữ liệu", Toast.LENGTH_SHORT).show()
-                        }
-                } else {
-                    Toast.makeText(this, "Đăng ký thất bại: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
-                }
-            }
+        icon.setImageResource(R.drawable.eye)
+        editText.setSelection(editText.text.length)
     }
 }

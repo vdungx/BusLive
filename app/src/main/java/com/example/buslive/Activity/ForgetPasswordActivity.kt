@@ -2,29 +2,29 @@ package com.example.buslive.Activity
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.example.buslive.R
 import com.google.firebase.auth.FirebaseAuth
 
 class ForgetPasswordActivity : AppCompatActivity() {
+
     private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_forget_pass) // Đảm bảo layout này là giao diện quên mật khẩu của bạn
+        setContentView(R.layout.activity_forget_pass)
 
         auth = FirebaseAuth.getInstance()
 
-        val emailEditText = findViewById<EditText>(R.id.edt_emailforgetpassword) // ID của EditText nhập email
-        val sendButton = findViewById<Button>(R.id.btn_send) // ID của nút Gửi
+        // Khai báo các thành phần UI
+        val edtEmail = findViewById<EditText>(R.id.edt_emailforgetpassword)
+        val btnSend = findViewById<Button>(R.id.btn_send)
+        val btnBack = findViewById<ImageView>(R.id.btn_back)
 
-        // Xử lý khi nhấn nút "Gửi"
-        sendButton.setOnClickListener {
-            val email = emailEditText.text.toString().trim()
+        // Gửi email đặt lại mật khẩu
+        btnSend.setOnClickListener {
+            val email = edtEmail.text.toString().trim()
 
             if (email.isEmpty()) {
                 Toast.makeText(this, "Vui lòng nhập email!", Toast.LENGTH_SHORT).show()
@@ -40,18 +40,18 @@ class ForgetPasswordActivity : AppCompatActivity() {
                             Toast.LENGTH_LONG
                         ).show()
                     } else {
-                        Toast.makeText(this, "Lỗi: ${task.exception?.message}", Toast.LENGTH_SHORT)
-                            .show()
+                        Toast.makeText(
+                            this,
+                            "Lỗi: ${task.exception?.message}",
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
                 }
         }
 
-        // Xử lý khi nhấn nút quay lại
-        val tvbacktologin = findViewById<ImageView>(R.id.btn_back)
-        tvbacktologin.setOnClickListener {
-            // Chuyển sang màn hình đăng ký
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
+        // Quay lại màn hình đăng nhập
+        btnBack.setOnClickListener {
+            startActivity(Intent(this, LoginActivity::class.java))
         }
     }
 }

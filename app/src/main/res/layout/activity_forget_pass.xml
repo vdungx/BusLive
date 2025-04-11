@@ -23,7 +23,7 @@
                 android:layout_marginStart="0dp"
                 android:layout_marginTop="0dp"
                 android:layout_marginEnd="0dp"
-                android:background="#65558F"
+                android:background="#03A9F4"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -39,14 +39,15 @@
                         android:layout_height="52dp"
                         android:layout_marginEnd="15dp"
                         android:scaleType="fitXY"
-                        android:src="@drawable/back" />
+                        android:src="@drawable/back"
+                        app:tint="@color/white" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginVertical="18dp"
                         android:text="Quên Mật Khẩu"
-                        android:textColor="#000000"
+                        android:textColor="@color/white"
                         android:textSize="20sp" />
                 </LinearLayout>
             </LinearLayout>
@@ -113,7 +114,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="90dp"
                 android:layout_marginBottom="480dp"
-                android:backgroundTint="@color/black"
+                android:backgroundTint="#03A9F4"
                 android:paddingHorizontal="108dp"
                 android:paddingVertical="21dp"
                 android:text="Gửi"
