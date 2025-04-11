@@ -1,4 +1,4 @@
-package com.example.yourapp
+package com.example.buslive.Activity
 
 import android.content.Intent
 import android.os.Bundle
