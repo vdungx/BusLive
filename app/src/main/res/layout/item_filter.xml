@@ -84,7 +84,7 @@
             android:layout_width="100dp"
             android:layout_height="60dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/ic_bus"
+            android:src="@drawable/xemoi"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_time_arrival"
             android:layout_marginTop="8dp" />

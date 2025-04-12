@@ -61,7 +61,6 @@ class ChuyenXeAdapter(
         holder.txtNoPrepayment.visibility = View.GONE
         holder.txtConfirmNow.visibility = View.GONE
 
-        holder.imgBus.setImageResource(R.drawable.ic_bus)
 
         holder.btnChoose.setOnClickListener {
             onChonChoClick(chuyen)

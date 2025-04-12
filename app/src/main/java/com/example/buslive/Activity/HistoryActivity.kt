@@ -83,7 +83,7 @@ class HistoryActivity : AppCompatActivity() {
                                                         textViewDiemDen.text = "Điểm đến: $diemDen"
                                                         textViewThoiGianKhoiHanh.text = "Thời gian khởi hành: $gioDi - $ngayKhoiHanh"
                                                         textViewThoiGianDuKien.text = "Thời gian dự kiến: $gioDen"
-                                                        textViewGiaVe.text = "Giá vé: ${gia ?: 0}"
+                                                        textViewGiaVe.text = "Giá vé: ${gia ?: 0} VNĐ"
                                                         textViewTrangThai.text = "Trạng thái: $trangThai"
                                                         textViewTenNhaXeLienHe.text = "Nhà xe: $tenNhaXe"
                                                     }

@@ -22,9 +22,6 @@
             android:name=".Activity.HistoryActivity"
             android:exported="false" />
         <activity
-            android:name=".Activity.ResultActivity"
-            android:exported="false" />
-        <activity
             android:name=".Activity.LoginActivity"
             android:exported="true">
             <intent-filter>
