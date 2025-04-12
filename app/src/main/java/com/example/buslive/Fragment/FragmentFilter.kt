@@ -133,29 +133,51 @@ class FragmentFilter : Fragment() {
         chuyenRef.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 val chuyenList = mutableListOf<ChuyenXe>()
+                val totalChildren = snapshot.childrenCount
+                var processedChildren = 0
 
                 for (chuyenSnap in snapshot.children) {
                     val chuyen = chuyenSnap.getValue(ChuyenXe::class.java)
                     val idTuyen = chuyenSnap.child("idTuyen").getValue(String::class.java)
 
                     if (chuyen != null && idTuyen != null) {
-                        // Lấy thêm điểm đi, điểm đến từ tuyến đường
                         tuyenRef.child(idTuyen).addListenerForSingleValueEvent(object : ValueEventListener {
                             override fun onDataChange(tuyenSnapshot: DataSnapshot) {
+                                processedChildren++
+
                                 chuyen.diemDi = tuyenSnapshot.child("diemDi").getValue(String::class.java)
                                 chuyen.diemDen = tuyenSnapshot.child("diemDen").getValue(String::class.java)
-                                chuyenList.add(chuyen)
 
-                                // Chỉ submit danh sách sau khi xử lý hết
-                                if (chuyenList.size == snapshot.childrenCount.toInt()) {
+                                // Kiểm tra ngày giờ khởi hành
+                                if (!chuyen.ngayKhoiHanh.isNullOrEmpty() && !chuyen.gioDi.isNullOrEmpty()) {
+                                    try {
+                                        val format = java.text.SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault())
+                                        val chuyenDate = format.parse("${chuyen.ngayKhoiHanh} ${chuyen.gioDi}")
+                                        val now = Date()
+
+                                        if (chuyenDate != null && chuyenDate.after(now)) {
+                                            chuyenList.add(chuyen)
+                                        }
+                                    } catch (e: Exception) {
+                                        e.printStackTrace()
+                                    }
+                                }
+
+                                // Khi đã xử lý hết các tuyến tương ứng
+                                if (processedChildren == totalChildren.toInt()) {
                                     adapter.submitList(chuyenList)
                                 }
                             }
 
                             override fun onCancelled(error: DatabaseError) {
-                                // Bỏ qua nếu có lỗi khi lấy tuyến
+                                processedChildren++
+                                if (processedChildren == totalChildren.toInt()) {
+                                    adapter.submitList(chuyenList)
+                                }
                             }
                         })
+                    } else {
+                        processedChildren++
                     }
                 }
             }
